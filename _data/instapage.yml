@@ -46,7 +46,7 @@ sv:
   email:
     placeholder: Email
     messages:
-      required: Var vänlig ange din emailadress 
+      required: Var vänlig ange din emailadress
       format: Var vänlig ange en giltig emailadress
       domain: Angiven email domän finns ej
 
@@ -59,9 +59,9 @@ sv:
       valid: Var vänlig ange ett giltigt telefonummer
     help: Sök i listan genom att skriva in första bokstäverna i ditt land, eller välj genom att ange landskod i telefonummret
 
-    hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
-    market: SE
-    url: http://www.bartenderskolan.com/lp/travel
-    title: Gratis Broshyr
-    timezone: +01:00
-    submit-text: Ladda ner Broshyr
+  hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
+  market: SE
+  url: http://www.bartenderskolan.com/lp/travel
+  title: Gratis Broshyr
+  timezone: +01:00
+  submit-text: Ladda ner Broshyr
