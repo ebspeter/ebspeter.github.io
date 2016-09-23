@@ -50,7 +50,7 @@ sv:
       format: Var vänlig ange en giltig emailadress
       domain: Angiven email domän finns ej
 
-  countrycode: +46
+  countrycode: "+46"
 
   phone:
     placeholder: Telefonummer
@@ -63,5 +63,5 @@ sv:
   market: SE
   url: http://www.bartenderskolan.com/lp/travel
   title: Gratis Broshyr
-  timezone: +01:00
+  timezone: "+01:00"
   submit-text: Ladda ner Broshyr
