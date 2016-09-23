@@ -1,0 +1,57 @@
+---
+layout: instapage_form
+title: Form
+---
+
+<form accept-charset="UTF-8" action="/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ page.path | downcase }}" enctype="multipart/form-data" id="hsForm_top" method="POST" class="hs-form stacked">
+
+  <input type="text" class="hs-input" id="firstname" name="firstname" placeholder="{{ page.firstname.placeholder }}"
+    data-msg="{{ variation.firstname.placeholder }}"/>
+
+  <input type="text" class="hs-input" id="lastname" name="lastname" placeholder="{{ page.lastname.placeholder }}"
+    data-msg="{{ page.lastname.messages.required }}"/>
+
+  <input type="email" class="hs-input" type="text" id="email" name="email" placeholder="{{ page.email.placeholder }}"
+    data-msg-required="{{ page.email.messages.required }}"
+    data-msg-format="{{ page.email.messages.format }}"
+    data-msg-domain="{{ page.email.messages.domain }}" />
+
+  <noscript>
+    <fieldset class="form-columns-2">
+      <div class="hs_countrycode field hs-form-field">
+        <input type="text" class="hs-input" id="countrycode" name="countrycode" placeholder="" value="{{ page.countrycode }}">
+      </div>
+      <div class="hs_countrycode field hs-form-field">
+        <input type="tel" class="hs-input nojs" id="phone" name="phone" placeholder="{{ page.phone.placeholder }}">
+      </div>
+    </fieldset>
+  </noscript>
+
+  <input type="hidden" id="itlPhoneFull" class="itlPhoneFull brochure" name="itlPhoneFull" style="display: none"
+    data-msg-required="{{ page.phone.messages.required }}"
+    data-msg-valid="{{ page.phone.messages.valid }}" />
+
+  <p name="itl-phone" class="jsonly">"{{ page.help }}"</p>
+  <input type="tel" name="itl-phone" id="itl-phone" class="itl-phone jsonly">
+
+  <input type="hidden" name="form" value="{{ page.hubspot-id }}">
+  <input type="hidden" name="option_market" value="{{ page.market }}">
+  <input type="hidden" name="url" value="{{ page.url }}">
+  <input type="hidden" name="title" value="{{ page.title }}">
+  <input type="hidden" name="utm_source" value="[utm_source]">
+  <input type="hidden" name="utm_medium" value="[utm_medium]">
+  <input type="hidden" name="utm_campaign" value="[utm_campaign]">
+  <input type="hidden" name="utm_content" value="[utm_content]">
+  <input type="hidden" name="utm_id" value="[utm_id]">
+  <input type="hidden" name="timezonediff" value="{{ page.timezone }}">
+  <input type="hidden" name="js" value="">
+  <br/>
+  <input type="submit" name="submit" value="{{ page.submit-text }}">
+  <div class="validation-messages jsonly"></div>
+</form>
+
+<noscript>
+  <iframe class="result" name="result_{{ page.title | downcase }}" scrolling="no"
+    src="/wp-content/themes/ebs-v2/form/formhandler-ip.php">
+  </iframe>
+</noscript>

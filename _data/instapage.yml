@@ -1,0 +1,67 @@
+en:
+  firstname:
+    placeholder: First name
+    messages:
+      required: Please enter your first name
+
+  lastname:
+    placeholder: Last name
+    messages:
+      required: Please enter your last name
+
+  email:
+    placeholder: Email
+    messages:
+      required: Please enter your email
+      format: Please enter a valid email
+      domain: Email domain don't exist
+
+  countrycode: +61
+
+  phone:
+    placeholder: Phone Number
+    messages:
+      required: Please enter your phonenumber
+      valid: Please enter a valid phonenumber
+    help: Search the list by typing your country name, or enter your country code to select country
+
+    hubspot-id: 37f35fef-49d7-43d2-92a1-9fac37f6b6b0
+    market: EN
+    url: http://barschool.net/lp/travel
+    title: Free Brochure
+    timezone: +10:00
+    submit-text: Download Brochure
+    
+sv:
+  firstname:
+    placeholder: Förnamn
+    messages:
+      required: Vänligen ange ditt förnamn
+
+  lastname:
+    placeholder: Last name
+    messages:
+      required: Please enter your last name
+
+  email:
+    placeholder: Email
+    messages:
+      required: Please enter your email
+      format: Please enter a valid email
+      domain: Email domain don't exist
+
+  countrycode: +61
+
+  phone:
+    placeholder: Phone Number
+    messages:
+      required: Please enter your phonenumber
+      valid: Please enter a valid phonenumber
+    help: Search the list by typing your country name, or enter your country code to select country
+
+    hubspot-id: 37f35fef-49d7-43d2-92a1-9fac37f6b6b0
+    market: EN
+    url: http://barschool.net/lp/travel
+    title: Free Brochure
+    timezone: +10:00
+    submit-text: Download Brochure
