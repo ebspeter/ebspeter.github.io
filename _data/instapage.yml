@@ -39,29 +39,29 @@ sv:
       required: Vänligen ange ditt förnamn
 
   lastname:
-    placeholder: Last name
+    placeholder: Efternamn
     messages:
-      required: Please enter your last name
+      required: Var vänlig ange ditt efternamn
 
   email:
     placeholder: Email
     messages:
-      required: Please enter your email
-      format: Please enter a valid email
-      domain: Email domain don't exist
+      required: Var vänlig ange din emailadress 
+      format: Var vänlig ange en giltig emailadress
+      domain: Angiven email domän finns ej
 
-  countrycode: +61
+  countrycode: +46
 
   phone:
-    placeholder: Phone Number
+    placeholder: Telefonummer
     messages:
-      required: Please enter your phonenumber
-      valid: Please enter a valid phonenumber
-    help: Search the list by typing your country name, or enter your country code to select country
+      required: Var vänlig ange ditt telefonummer
+      valid: Var vänlig ange ett giltigt telefonummer
+    help: Sök i listan genom att skriva in första bokstäverna i ditt land, eller välj genom att ange landskod i telefonummret
 
-    hubspot-id: 37f35fef-49d7-43d2-92a1-9fac37f6b6b0
-    market: EN
-    url: http://barschool.net/lp/travel
-    title: Free Brochure
-    timezone: +10:00
-    submit-text: Download Brochure
+    hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
+    market: SE
+    url: http://www.bartenderskolan.com/lp/travel
+    title: Gratis Broshyr
+    timezone: +01:00
+    submit-text: Ladda ner Broshyr
