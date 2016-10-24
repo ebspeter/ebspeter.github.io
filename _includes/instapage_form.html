@@ -4,7 +4,7 @@
 {% assign location = path[3] %}
 {% assign variation = site.data.instapage[market] %}
 
-<form accept-charset="UTF-8" action="/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" id="hsForm_{{ page.variation }}" method="POST" class="hs-form stacked">
+<form accept-charset="UTF-8" action="{{ variation.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" id="hsForm_{{ page.variation }}" method="POST" class="hs-form stacked">
 
   <input type="text" class="hs-input" id="firstname" name="firstname" placeholder="{{ variation.firstname.placeholder }}"
     data-msg="{{ variation.firstname.placeholder }}"/>

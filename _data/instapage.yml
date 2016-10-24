@@ -27,7 +27,7 @@ en:
 
   hubspot-id: 37f35fef-49d7-43d2-92a1-9fac37f6b6b0
   market: EN
-  url: http://barschool.net/lp/
+  url: http://barschool.net
   title: Free Brochure
   timezone: "+10:00"
   submit-text: Download Brochure
@@ -50,7 +50,7 @@ dk:
       format: Indsæt din gyldige email
       domain: e-mailen eksisterer ikke
 
-  countrycode: "+46"
+  countrycode: "+45"
 
   phone:
     placeholder: Telefonnummer
@@ -61,7 +61,7 @@ dk:
 
   hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
   market: SE
-  url: http://www.bartenderskolen.com/lp/
+  url: http://www.bartenderskolen.dk
   title: Gratis Broshyr
   timezone: "+01:00"
   submit-text: Download Nu!
