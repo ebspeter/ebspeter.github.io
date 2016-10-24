@@ -4,7 +4,9 @@
 {% assign location = path[3] %}
 {% assign variation = site.data.instapage[market] %}
 
-{% include instapage_head.html url = variation.url %}
+{% if location == 'top' %}
+  {% include instapage_head.html url = variation.url %}
+{% endif %}
 
 <form accept-charset="UTF-8" action="{{ variation.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" id="hsForm_{{ location }}" method="POST" class="hs-form stacked">
 
