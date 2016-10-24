@@ -24,10 +24,10 @@
 
     <noscript>
       <fieldset class="form-columns-2">
-        <div class="hs_countrycode field hs-form-field">
+        <div class="form-field">
           <input type="text" class="hs-input" id="countrycode" name="countrycode" placeholder="" value="{{ variation.countrycode }}">
         </div>
-        <div class="hs_countrycode field hs-form-field">
+        <div class="form-field last">
           <input type="tel" class="hs-input nojs" id="phone" name="phone" placeholder="{{ variation.phone.placeholder }}">
         </div>
       </fieldset>
@@ -51,14 +51,14 @@
     <input type="hidden" name="utm_id" value="[utm_id]">
     <input type="hidden" name="timezonediff" value="{{ variation.timezone }}">
     <input type="hidden" name="js" value="">
-    <br/>
-    <div class="validation-messages jsonly"></div>
     <input type="submit" name="submit" value="{{ variation.submit-text }}">
+    <div class="validation-messages jsonly"></div>
  </form>
 
   <noscript>
     <iframe class="result" name="result_{{ location }}" scrolling="no"
-      src="{{ variation.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php">
+      src="{{ variation.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php"
+      width="100%">
     </iframe>
   </noscript>
 </body>
