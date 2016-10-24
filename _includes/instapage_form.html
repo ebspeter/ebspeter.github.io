@@ -1,5 +1,10 @@
-{% assign variation = site.data.instapage[page.language] %}
-<form accept-charset="UTF-8" action="/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ page.variation }}" enctype="multipart/form-data" id="hsForm_{{ page.variation }}" method="POST" class="hs-form stacked">
+{% assign path = page.path | split:"/" %}
+{% assign slug = path[1] %}
+{% assign market = path[2] %}
+{% assign location = path[3] %}
+{% assign variation = site.data.instapage[market] %}
+
+<form accept-charset="UTF-8" action="/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" id="hsForm_{{ page.variation }}" method="POST" class="hs-form stacked">
 
   <input type="text" class="hs-input" id="firstname" name="firstname" placeholder="{{ variation.firstname.placeholder }}"
     data-msg="{{ variation.firstname.placeholder }}"/>
@@ -32,7 +37,7 @@
 
   <input type="hidden" name="form" value="{{ variation.hubspot-id }}">
   <input type="hidden" name="option_market" value="{{ variation.market }}">
-  <input type="hidden" name="url" value="{{ variation.url }}">
+  <input type="hidden" name="url" value="{{ variation.url }}{{ slug }}">
   <input type="hidden" name="title" value="{{ variation.title }}">
   <input type="hidden" name="utm_source" value="[utm_source]">
   <input type="hidden" name="utm_medium" value="[utm_medium]">
@@ -47,7 +52,7 @@
 </form>
 
 <noscript>
-  <iframe class="result" name="result_{{ page.variation }}" scrolling="no"
+  <iframe class="result" name="result_{{ location }}" scrolling="no"
     src="/wp-content/themes/ebs-v2/form/formhandler-ip.php">
   </iframe>
 </noscript>

@@ -27,10 +27,282 @@ en:
 
   hubspot-id: 37f35fef-49d7-43d2-92a1-9fac37f6b6b0
   market: EN
-  url: http://barschool.net/lp/travel
+  url: http://barschool.net/lp/
   title: Free Brochure
   timezone: "+10:00"
   submit-text: Download Brochure
+
+dk:
+  firstname:
+    placeholder: Fornavn
+    messages:
+      required: Indsæt dit fornavn
+
+  lastname:
+    placeholder: Efternavn
+    messages:
+      required: Indsæt dit efternavn
+
+  email:
+    placeholder: Email
+    messages:
+      required: Indsæt din email
+      format: Indsæt din gyldige email
+      domain: e-mailen eksisterer ikke
+
+  countrycode: "+46"
+
+  phone:
+    placeholder: Telefonnummer
+    messages:
+      required: Indsæt dit telefonnummer
+      valid: Indsæt et gyldigt telefonnummer
+    help: Søg på listen ved at skrive navnet på dit land, eller skriv landekoden på det valgte land
+
+  hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
+  market: SE
+  url: http://www.bartenderskolen.com/lp/
+  title: Gratis Broshyr
+  timezone: "+01:00"
+  submit-text: Download Nu!
+
+sv:
+  firstname:
+    placeholder: Förnamn
+    messages:
+      required: Vänligen ange ditt förnamn
+
+  lastname:
+    placeholder: Efternamn
+    messages:
+      required: Var vänlig ange ditt efternamn
+
+  email:
+    placeholder: Email
+    messages:
+      required: Var vänlig ange din emailadress
+      format: Var vänlig ange en giltig emailadress
+      domain: Angiven email domän finns ej
+
+  countrycode: "+46"
+
+  phone:
+    placeholder: Telefonummer
+    messages:
+      required: Var vänlig ange ditt telefonummer
+      valid: Var vänlig ange ett giltigt telefonummer
+    help: Sök i listan genom att skriva in första bokstäverna i ditt land, eller välj genom att ange landskod i telefonummret
+
+  hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
+  market: SE
+  url: http://www.bartenderskolan.com/lp/travel
+  title: Gratis Broshyr
+  timezone: "+01:00"
+  submit-text: Ladda ner Broshyr
+
+sv:
+  firstname:
+    placeholder: Förnamn
+    messages:
+      required: Vänligen ange ditt förnamn
+
+  lastname:
+    placeholder: Efternamn
+    messages:
+      required: Var vänlig ange ditt efternamn
+
+  email:
+    placeholder: Email
+    messages:
+      required: Var vänlig ange din emailadress
+      format: Var vänlig ange en giltig emailadress
+      domain: Angiven email domän finns ej
+
+  countrycode: "+46"
+
+  phone:
+    placeholder: Telefonummer
+    messages:
+      required: Var vänlig ange ditt telefonummer
+      valid: Var vänlig ange ett giltigt telefonummer
+    help: Sök i listan genom att skriva in första bokstäverna i ditt land, eller välj genom att ange landskod i telefonummret
+
+  hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
+  market: SE
+  url: http://www.bartenderskolan.com/lp/travel
+  title: Gratis Broshyr
+  timezone: "+01:00"
+  submit-text: Ladda ner Broshyr
+
+sv:
+  firstname:
+    placeholder: Förnamn
+    messages:
+      required: Vänligen ange ditt förnamn
+
+  lastname:
+    placeholder: Efternamn
+    messages:
+      required: Var vänlig ange ditt efternamn
+
+  email:
+    placeholder: Email
+    messages:
+      required: Var vänlig ange din emailadress
+      format: Var vänlig ange en giltig emailadress
+      domain: Angiven email domän finns ej
+
+  countrycode: "+46"
+
+  phone:
+    placeholder: Telefonummer
+    messages:
+      required: Var vänlig ange ditt telefonummer
+      valid: Var vänlig ange ett giltigt telefonummer
+    help: Sök i listan genom att skriva in första bokstäverna i ditt land, eller välj genom att ange landskod i telefonummret
+
+  hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
+  market: SE
+  url: http://www.bartenderskolan.com/lp/travel
+  title: Gratis Broshyr
+  timezone: "+01:00"
+  submit-text: Ladda ner Broshyr
+
+sv:
+  firstname:
+    placeholder: Förnamn
+    messages:
+      required: Vänligen ange ditt förnamn
+
+  lastname:
+    placeholder: Efternamn
+    messages:
+      required: Var vänlig ange ditt efternamn
+
+  email:
+    placeholder: Email
+    messages:
+      required: Var vänlig ange din emailadress
+      format: Var vänlig ange en giltig emailadress
+      domain: Angiven email domän finns ej
+
+  countrycode: "+46"
+
+  phone:
+    placeholder: Telefonummer
+    messages:
+      required: Var vänlig ange ditt telefonummer
+      valid: Var vänlig ange ett giltigt telefonummer
+    help: Sök i listan genom att skriva in första bokstäverna i ditt land, eller välj genom att ange landskod i telefonummret
+
+  hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
+  market: SE
+  url: http://www.bartenderskolan.com/lp/travel
+  title: Gratis Broshyr
+  timezone: "+01:00"
+  submit-text: Ladda ner Broshyr
+
+sv:
+  firstname:
+    placeholder: Förnamn
+    messages:
+      required: Vänligen ange ditt förnamn
+
+  lastname:
+    placeholder: Efternamn
+    messages:
+      required: Var vänlig ange ditt efternamn
+
+  email:
+    placeholder: Email
+    messages:
+      required: Var vänlig ange din emailadress
+      format: Var vänlig ange en giltig emailadress
+      domain: Angiven email domän finns ej
+
+  countrycode: "+46"
+
+  phone:
+    placeholder: Telefonummer
+    messages:
+      required: Var vänlig ange ditt telefonummer
+      valid: Var vänlig ange ett giltigt telefonummer
+    help: Sök i listan genom att skriva in första bokstäverna i ditt land, eller välj genom att ange landskod i telefonummret
+
+  hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
+  market: SE
+  url: http://www.bartenderskolan.com/lp/travel
+  title: Gratis Broshyr
+  timezone: "+01:00"
+  submit-text: Ladda ner Broshyr
+
+sv:
+  firstname:
+    placeholder: Förnamn
+    messages:
+      required: Vänligen ange ditt förnamn
+
+  lastname:
+    placeholder: Efternamn
+    messages:
+      required: Var vänlig ange ditt efternamn
+
+  email:
+    placeholder: Email
+    messages:
+      required: Var vänlig ange din emailadress
+      format: Var vänlig ange en giltig emailadress
+      domain: Angiven email domän finns ej
+
+  countrycode: "+46"
+
+  phone:
+    placeholder: Telefonummer
+    messages:
+      required: Var vänlig ange ditt telefonummer
+      valid: Var vänlig ange ett giltigt telefonummer
+    help: Sök i listan genom att skriva in första bokstäverna i ditt land, eller välj genom att ange landskod i telefonummret
+
+  hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
+  market: SE
+  url: http://www.bartenderskolan.com/lp/travel
+  title: Gratis Broshyr
+  timezone: "+01:00"
+  submit-text: Ladda ner Broshyr
+
+sv:
+  firstname:
+    placeholder: Förnamn
+    messages:
+      required: Vänligen ange ditt förnamn
+
+  lastname:
+    placeholder: Efternamn
+    messages:
+      required: Var vänlig ange ditt efternamn
+
+  email:
+    placeholder: Email
+    messages:
+      required: Var vänlig ange din emailadress
+      format: Var vänlig ange en giltig emailadress
+      domain: Angiven email domän finns ej
+
+  countrycode: "+46"
+
+  phone:
+    placeholder: Telefonummer
+    messages:
+      required: Var vänlig ange ditt telefonummer
+      valid: Var vänlig ange ett giltigt telefonummer
+    help: Sök i listan genom att skriva in första bokstäverna i ditt land, eller välj genom att ange landskod i telefonummret
+
+  hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
+  market: SE
+  url: http://www.bartenderskolan.com/lp/travel
+  title: Gratis Broshyr
+  timezone: "+01:00"
+  submit-text: Ladda ner Broshyr
 
 sv:
   firstname:
