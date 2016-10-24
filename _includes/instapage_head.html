@@ -270,12 +270,7 @@
                 values[this.name] = $(this).val();
               }
             });
-            $.post("{{ variation.url }}/wp-content/themes/ebs-v2/check.php", function() {}, "jsonp").always(function(resp) {
-              var response = (resp);
-            });
-            console.log(response);
-            return response;
-            //$.post( "{{ variation.url }}/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) } );
+            $.post( "{{ variation.url }}/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) } );
           }
         },
       });
