@@ -4,55 +4,61 @@
 {% assign location = path[3] %}
 {% assign variation = site.data.instapage[market] %}
 
-<form accept-charset="UTF-8" action="{{ variation.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" id="hsForm_{{ page.variation }}" method="POST" class="hs-form stacked">
+<head>
+  {% include instapage_head.html url = variation.url %}
+</head>
 
-  <input type="text" class="hs-input" id="firstname" name="firstname" placeholder="{{ variation.firstname.placeholder }}"
-    data-msg="{{ variation.firstname.placeholder }}"/>
+<body>
+  <form accept-charset="UTF-8" action="{{ variation.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" id="hsForm_{{ page.variation }}" method="POST" class="hs-form stacked">
 
-  <input type="text" class="hs-input" id="lastname" name="lastname" placeholder="{{ variation.lastname.placeholder }}"
-    data-msg="{{ variation.lastname.messages.required }}"/>
+    <input type="text" class="hs-input" id="firstname" name="firstname" placeholder="{{ variation.firstname.placeholder }}"
+      data-msg="{{ variation.firstname.placeholder }}"/>
 
-  <input type="email" class="hs-input" type="text" id="email" name="email" placeholder="{{ variation.email.placeholder }}"
-    data-msg-required="{{ variation.email.messages.required }}"
-    data-msg-format="{{ variation.email.messages.format }}"
-    data-msg-domain="{{ variation.email.messages.domain }}" />
+    <input type="text" class="hs-input" id="lastname" name="lastname" placeholder="{{ variation.lastname.placeholder }}"
+      data-msg="{{ variation.lastname.messages.required }}"/>
+
+    <input type="email" class="hs-input" type="text" id="email" name="email" placeholder="{{ variation.email.placeholder }}"
+      data-msg-required="{{ variation.email.messages.required }}"
+      data-msg-format="{{ variation.email.messages.format }}"
+      data-msg-domain="{{ variation.email.messages.domain }}" />
+
+    <noscript>
+      <fieldset class="form-columns-2">
+        <div class="hs_countrycode field hs-form-field">
+          <input type="text" class="hs-input" id="countrycode" name="countrycode" placeholder="" value="{{ variation.countrycode }}">
+        </div>
+        <div class="hs_countrycode field hs-form-field">
+          <input type="tel" class="hs-input nojs" id="phone" name="phone" placeholder="{{ variation.phone.placeholder }}">
+        </div>
+      </fieldset>
+    </noscript>
+    <input type="submit" name="submit" value="{{ variation.submit-text }}">
+
+    <input type="hidden" id="itlPhoneFull" class="itlPhoneFull brochure" name="itlPhoneFull" style="display: none"
+      data-msg-required="{{ variation.phone.messages.required }}"
+      data-msg-valid="{{ variation.phone.messages.valid }}" />
+
+    <p name="itl-phone" class="jsonly">"{{ page.help }}"</p>
+    <input type="tel" name="itl-phone" id="itl-phone" class="itl-phone jsonly">
+
+    <input type="hidden" name="form" value="{{ variation.hubspot-id }}">
+    <input type="hidden" name="option_market" value="{{ variation.market }}">
+    <input type="hidden" name="url" value="{{ variation.url }}{{ slug }}">
+    <input type="hidden" name="title" value="{{ variation.title }}">
+    <input type="hidden" name="utm_source" value="[utm_source]">
+    <input type="hidden" name="utm_medium" value="[utm_medium]">
+    <input type="hidden" name="utm_campaign" value="[utm_campaign]">
+    <input type="hidden" name="utm_content" value="[utm_content]">
+    <input type="hidden" name="utm_id" value="[utm_id]">
+    <input type="hidden" name="timezonediff" value="{{ variation.timezone }}">
+    <input type="hidden" name="js" value="">
+    <br/>
+    <div class="validation-messages jsonly"></div>
+  </form>
 
   <noscript>
-    <fieldset class="form-columns-2">
-      <div class="hs_countrycode field hs-form-field">
-        <input type="text" class="hs-input" id="countrycode" name="countrycode" placeholder="" value="{{ variation.countrycode }}">
-      </div>
-      <div class="hs_countrycode field hs-form-field">
-        <input type="tel" class="hs-input nojs" id="phone" name="phone" placeholder="{{ variation.phone.placeholder }}">
-      </div>
-    </fieldset>
+    <iframe class="result" name="result_{{ location }}" scrolling="no"
+      src="{{ variation.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php">
+    </iframe>
   </noscript>
-  <input type="submit" name="submit" value="{{ variation.submit-text }}">
-
-  <input type="hidden" id="itlPhoneFull" class="itlPhoneFull brochure" name="itlPhoneFull" style="display: none"
-    data-msg-required="{{ variation.phone.messages.required }}"
-    data-msg-valid="{{ variation.phone.messages.valid }}" />
-
-  <p name="itl-phone" class="jsonly">"{{ page.help }}"</p>
-  <input type="tel" name="itl-phone" id="itl-phone" class="itl-phone jsonly">
-
-  <input type="hidden" name="form" value="{{ variation.hubspot-id }}">
-  <input type="hidden" name="option_market" value="{{ variation.market }}">
-  <input type="hidden" name="url" value="{{ variation.url }}{{ slug }}">
-  <input type="hidden" name="title" value="{{ variation.title }}">
-  <input type="hidden" name="utm_source" value="[utm_source]">
-  <input type="hidden" name="utm_medium" value="[utm_medium]">
-  <input type="hidden" name="utm_campaign" value="[utm_campaign]">
-  <input type="hidden" name="utm_content" value="[utm_content]">
-  <input type="hidden" name="utm_id" value="[utm_id]">
-  <input type="hidden" name="timezonediff" value="{{ variation.timezone }}">
-  <input type="hidden" name="js" value="">
-  <br/>
-  <div class="validation-messages jsonly"></div>
-</form>
-
-<noscript>
-  <iframe class="result" name="result_{{ location }}" scrolling="no"
-    src="{{ variation.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php">
-  </iframe>
-</noscript>
+</body>
