@@ -32,7 +32,6 @@
         </div>
       </fieldset>
     </noscript>
-    <input type="submit" name="submit" value="{{ variation.submit-text }}">
 
     <input type="hidden" id="itlPhoneFull" class="itlPhoneFull brochure" name="itlPhoneFull" style="display: none"
       data-msg-required="{{ variation.phone.messages.required }}"
@@ -54,7 +53,8 @@
     <input type="hidden" name="js" value="">
     <br/>
     <div class="validation-messages jsonly"></div>
-  </form>
+    <input type="submit" name="submit" value="{{ variation.submit-text }}">
+ </form>
 
   <noscript>
     <iframe class="result" name="result_{{ location }}" scrolling="no"
