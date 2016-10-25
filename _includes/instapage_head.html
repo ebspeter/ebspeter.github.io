@@ -2,9 +2,9 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
-<link rel="stylesheet" type="text/css" href="{{ variation.url }}/wp-content/themes/ebs-v2/css/intlTelInput.css">
-<script type="text/javascript" src="{{ variation.url }}/wp-content/themes/ebs-v2/js/vendor/intlTelInput.js"></script>
-<script type="text/javascript" src="{{ variation.url }}/wp-content/themes/ebs-v2/js/vendor/utils.js"></script>
+<link rel="stylesheet" type="text/css" href="/wp-content/themes/ebs-v2/css/intlTelInput.css">
+<script type="text/javascript" src="/wp-content/themes/ebs-v2/js/vendor/intlTelInput.js"></script>
+<script type="text/javascript" src="/wp-content/themes/ebs-v2/js/vendor/utils.js"></script>
 
 <style type="text/css">
    /* dev only */
@@ -124,7 +124,7 @@
     z-index: 9999;
   }
   .iti-flag {
-    background-image: url("{{ variation.url }}/wp-content/themes/ebs-v2/images/min/flags.png") !important;
+    background-image: url("/wp-content/themes/ebs-v2/images/min/flags.png") !important;
   }
 
   @media only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -134,7 +134,7 @@
   only screen and (min-resolution: 192dpi),
   only screen and (min-resolution: 2dppx) {
       .iti-flag {
-          background-image: url("{{ variation.url }}/wp-content/themes/ebs-v2/images/min/flags@2x.png") !important;
+          background-image: url("/wp-content/themes/ebs-v2/images/min/flags@2x.png") !important;
       }
   }
 </style>
@@ -223,7 +223,7 @@
             email: true,
             RFC2822Email: true,
             remote: {
-              url: "{{ variation.url }}/wp-content/themes/ebs-v2/check.php",
+              url: "/wp-content/themes/ebs-v2/check.php",
               type: "post",
               data: {
                 "email-domain": function() {
@@ -270,7 +270,7 @@
                 values[this.name] = $(this).val();
               }
             });
-            $.post( "{{ variation.url }}/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) } );
+            $.post( "/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) } );
           }
         },
       });
