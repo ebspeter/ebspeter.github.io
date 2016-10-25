@@ -170,8 +170,8 @@
       var value = $(this).intlTelInput("getNumber");
       $('.itlPhoneFull').each(function(){
         $(this).val( value );
-        $(this).valid();
       });
+      $('.itlPhoneFull', $(this).parents('form:first')).valid();
     });
 
     // Format and sync on blur
