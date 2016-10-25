@@ -2,61 +2,68 @@
 {% assign slug = path[1] %}
 {% assign market = path[2] %}
 {% assign location = path[3] %}
-{% assign variation = site.data.instapage[market] %}
+{% assign meta = site.data.instapage[market].meta %}
 
-{% if location == 'top' %}
-  {% include instapage_head.html url = variation.url %}
+{% if site.data.instapage[market].copy.size == 2 %}
+  {% assign lang = site.data.instapage[market].copy %}
+  {% assign copy = site.data.instapage[lang].copy %}
+{% else %}
+  {% assign copy = site.data.instapage[market].copy %}
 {% endif %}
 
-<form accept-charset="UTF-8" action="{{ variation.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" id="hsForm_{{ location }}" method="POST" class="hs-form stacked">
+{% if location == 'top' %}
+  {% include instapage_head.html %}
+{% endif %}
 
-  <input type="text" class="hs-input" id="firstname" name="firstname" placeholder="{{ variation.firstname.placeholder }}"
-    data-msg="{{ variation.firstname.placeholder }}"/>
+<form accept-charset="UTF-8" action="/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" id="hsForm_{{ location }}" method="POST" class="hs-form stacked">
 
-  <input type="text" class="hs-input" id="lastname" name="lastname" placeholder="{{ variation.lastname.placeholder }}"
-    data-msg="{{ variation.lastname.messages.required }}"/>
+  <input type="text" class="hs-input" id="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}"
+    data-msg="{{ copy.firstname.messages.required }}"/>
 
-  <input type="email" class="hs-input" type="text" id="email" name="email" placeholder="{{ variation.email.placeholder }}"
-    data-msg-required="{{ variation.email.messages.required }}"
-    data-msg-format="{{ variation.email.messages.format }}"
-    data-msg-domain="{{ variation.email.messages.domain }}" />
+  <input type="text" class="hs-input" id="lastname" name="lastname" placeholder="{{ copy.lastname.placeholder }}"
+    data-msg="{{ copy.lastname.messages.required }}"/>
+
+  <input type="email" class="hs-input" type="text" id="email" name="email" placeholder="{{ copy.email.placeholder }}"
+    data-msg-required="{{ copy.email.messages.required }}"
+    data-msg-format="{{ copy.email.messages.format }}"
+    data-msg-domain="{{ copy.email.messages.domain }}" />
 
   <noscript>
     <fieldset class="form-columns-2">
       <div class="form-field">
-        <input type="text" class="hs-input" id="countrycode" name="countrycode" placeholder="" value="{{ variation.countrycode }}">
+        <input type="text" class="hs-input" id="countrycode" name="countrycode" placeholder="" value="{{ meta.countrycode }}">
       </div>
       <div class="form-field last">
-        <input type="tel" class="hs-input nojs" id="phone" name="phone" placeholder="{{ variation.phone.placeholder }}">
+        <input type="tel" class="hs-input nojs" id="phone" name="phone" placeholder="{{ copy.phone.placeholder }}">
       </div>
     </fieldset>
   </noscript>
 
   <input type="hidden" id="itlPhoneFull" class="itlPhoneFull brochure" name="itlPhoneFull" style="display: none"
-    data-msg-required="{{ variation.phone.messages.required }}"
-    data-msg-valid="{{ variation.phone.messages.valid }}" />
+    data-msg-required="{{ copy.phone.messages.required }}"
+    data-msg-valid="{{ copy.phone.messages.valid }}" />
 
   <p name="itl-phone" class="jsonly">{{ variation.phone.help }}</p>
   <input type="tel" name="itl-phone" id="itl-phone" class="itl-phone jsonly">
 
-  <input type="hidden" name="form" value="{{ variation.hubspot-id }}">
-  <input type="hidden" name="option_market" value="{{ variation.market }}">
-  <input type="hidden" name="url" value="{{ variation.url }}{{ slug }}">
-  <input type="hidden" name="title" value="{{ variation.title }}">
+  <input type="hidden" name="form" value="{{ meta.hubspot-id }}">
+  <input type="hidden" name="option_market" value="{{ meta.market }}">
+  <input type="hidden" name="url" value="{{ meta.url }}{{ slug }}">
+  <input type="hidden" name="title" value="{{ meta.title }}">
   <input type="hidden" name="utm_source" value="[utm_source]">
   <input type="hidden" name="utm_medium" value="[utm_medium]">
   <input type="hidden" name="utm_campaign" value="[utm_campaign]">
   <input type="hidden" name="utm_content" value="[utm_content]">
   <input type="hidden" name="utm_id" value="[utm_id]">
-  <input type="hidden" name="timezonediff" value="{{ variation.timezone }}">
+  <input type="hidden" name="timezonediff" value="{{ meta.timezone }}">
   <input type="hidden" name="js" value="">
-  <input type="submit" name="submit" value="{{ variation.submit-text }}">
+  <input type="submit" name="submit" value="{{ meta.submit-text }}">
   <div class="validation-messages jsonly"></div>
 </form>
 
 <noscript>
   <iframe class="result" name="result_{{ location }}" scrolling="no"
-    src="{{ variation.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php"
+    src="/wp-content/themes/ebs-v2/form/formhandler-ip.php"
     width="100%">
   </iframe>
 </noscript>
