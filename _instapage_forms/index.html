@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<div class="home">
+  <h1 class="page-heading">Forms</h1>
+    {% assign prev_slug = '' %}
+    {% for page in site.['instapage_forms'] %}
+      {% assign path = page.path | split:"/" %}
+      {% assign slug = path[1] %}
+      {% if slug != prev_slug and slug != 'index.html' %}
+        <h2>
+          <a href="/instapage_forms/{{ slug }}">{{ slug }}</a>
+        </h2>
+      {% endif %}
+      {% assign prev_slug = slug %}
+    {% endfor %}
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
