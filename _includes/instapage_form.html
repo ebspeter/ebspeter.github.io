@@ -16,13 +16,10 @@
 {% endif %}
 
 <form accept-charset="UTF-8" action="/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" id="hsForm_{{ location }}" method="POST" class="hs-form stacked">
-
   <input type="text" class="hs-input" id="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}"
     data-msg="{{ copy.firstname.messages.required }}"/>
-
   <input type="text" class="hs-input" id="lastname" name="lastname" placeholder="{{ copy.lastname.placeholder }}"
     data-msg="{{ copy.lastname.messages.required }}"/>
-
   <input type="email" class="hs-input" type="text" id="email" name="email" placeholder="{{ copy.email.placeholder }}"
     data-msg-required="{{ copy.email.messages.required }}"
     data-msg-format="{{ copy.email.messages.format }}"
@@ -42,8 +39,7 @@
   <input type="hidden" id="itlPhoneFull" class="itlPhoneFull brochure" name="itlPhoneFull" style="display: none"
     data-msg-required="{{ copy.phone.messages.required }}"
     data-msg-valid="{{ copy.phone.messages.valid }}" />
-
-  <p name="itl-phone" class="jsonly">{{ variation.phone.help }}</p>
+  <p name="itl-phone" class="jsonly">{{ copy.phone.help }}</p>
   <input type="tel" name="itl-phone" id="itl-phone" class="itl-phone jsonly">
 
   <input type="hidden" name="form" value="{{ meta.hubspot-id }}">

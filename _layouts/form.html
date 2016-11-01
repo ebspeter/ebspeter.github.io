@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="home">
+          <h1 class="page-heading">Markets</h1>
+          {% assign path = page.path | split:"/" %}
+          {% assign current_slug = path[1] %}
+          {% assign prev_market = '' %}
+          <ul>
+            {% for page in site.['instapage_forms'] %}
+              {% assign path = page.path | split:"/" %}
+              {% assign slug = path[1] %}
+              {% assign market = path[2] %}
+              {% if slug == current_slug and market != prev_market and market != 'index.html' %}
+                <li>
+                    <a href="/instapage_forms/{{ current_slug }}/{{ market }}">{{ market }}</a>
+                </li>
+              {% endif %}
+              {% assign prev_market = market %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {% comment %}
+    {% include footer.html %}
+    {% endcomment %}
+
+  </body>
+
+</html>

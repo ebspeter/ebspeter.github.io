@@ -176,7 +176,7 @@ de:
         valid: Bitte gib eine gültige Telefonnummer ein
       help: Durchsuche die Liste, indem du deine Länderkennung oder dein Land eingibst, um ein Land auszuwählen
   meta:
-    countrycode: "+46"
+    countrycode: "+49"
     hubspot-id: 6c3d842b-cb43-478e-8b4a-0376255201aa
     market: DE
     url: http://www.bartenderschule.com
