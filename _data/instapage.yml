@@ -91,7 +91,7 @@ sv:
     timezone: "+01:00"
     submit-text: Ladda ner din broschyr gratis
 
-no:
+'no':
   copy:
     firstname:
       placeholder: Förnamn
