@@ -10,10 +10,11 @@
     <div class="page-content">
       <div class="wrapper">
         <div class="home">
-          <h1 class="page-heading">Markets</h1>
           {% assign path = page.path | split:"/" %}
           {% assign current_slug = path[1] %}
           {% assign prev_market = '' %}
+          <a href="/instapage_forms">&laquo; Forms</a>
+          <h1 class="page-heading">{{ current_slug | capitalize }} - Markets</h1>
           <ul>
             {% for page in site.['instapage_forms'] %}
               {% assign path = page.path | split:"/" %}
@@ -21,7 +22,7 @@
               {% assign market = path[2] %}
               {% if slug == current_slug and market != prev_market and market != 'index.html' %}
                 <li>
-                    <a href="/instapage_forms/{{ current_slug }}/{{ market }}">{{ market }}</a>
+                    <a href="/instapage_forms/{{ current_slug }}/{{ market }}">{{ market | upcase }}</a>
                 </li>
               {% endif %}
               {% assign prev_market = market %}

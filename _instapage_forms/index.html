@@ -11,7 +11,7 @@ layout: default
       {% if slug != prev_slug and slug != 'index.html' %}
         <li>
           <h2>
-            <a href="/instapage_forms/{{ slug }}/">{{ slug }}</a>
+            <a href="/instapage_forms/{{ slug }}/">{{ slug | capitalize }}</a>
           </h2>
         </li>
       {% endif %}
