@@ -3,7 +3,21 @@ layout: default
 ---
 <div class="home">
   <h1 class="page-heading">Forms</h1>
-
+  {% assign prev_slug = '' %}
+  <ul>
+    {% for page in site.['instapage_forms'] %}
+      {% assign path = page.path | split:"/" %}
+      {% assign slug = path[1] %}
+      {% if slug != prev_slug and slug != 'index.html' %}
+        <li>
+          <h2>
+            <a href="/instapage_forms/{{ slug }}/">{{ slug }}</a>
+          </h2>
+        </li>
+      {% endif %}
+      {% assign prev_slug = slug %}
+    {% endfor %}
+  </ul>
 
   <ul class="post-list">
     {% for post in site.posts %}
