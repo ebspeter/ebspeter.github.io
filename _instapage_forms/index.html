@@ -5,7 +5,7 @@ layout: default
   <h1 class="page-heading">Forms</h1>
   {% assign prev_slug = '' %}
   <ul>
-    {% for page in site.['instapage_forms'] %}
+    {% for page in site.instapage_forms %}
       {% assign path = page.path | split:"/" %}
       {% assign slug = path[1] %}
       {% if slug != prev_slug and slug != 'index.html' %}

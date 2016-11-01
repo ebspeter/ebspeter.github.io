@@ -16,7 +16,7 @@
           <a href="/instapage_forms">&laquo; Forms</a>
           <h1 class="page-heading">{{ current_slug | capitalize }} - Markets</h1>
           <ul>
-            {% for page in site.['instapage_forms'] %}
+            {% for page in site.instapage_forms %}
               {% assign path = page.path | split:"/" %}
               {% assign slug = path[1] %}
               {% assign market = path[2] %}
