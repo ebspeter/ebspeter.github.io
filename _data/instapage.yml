@@ -22,7 +22,7 @@ en:
       help: Search the list by typing your country name, or enter your country code to select country
   meta:
     countrycode: "+44"
-    hubspot-id: 37f35fef-49d7-43d2-92a1-9fac37f6b6b0
+    hubspot-id: 33caee8b-be08-4595-9719-66d04178f3ce
     market: EN
     url: http://barschool.net
     title: Free Brochure
@@ -270,7 +270,7 @@ it:
       help: Cerca nella lista inserendo il nome della tua nazione, o inserisci il codice della tua nazione per selezionare la nazione
   meta:
     countrycode: "+39"
-    hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
+    hubspot-id: 9448802d-fb54-4fdc-903f-6d87407a784e
     market: IT
     url: http://www.bartenderschool.it
     title: Scarica la brochure gratuita
