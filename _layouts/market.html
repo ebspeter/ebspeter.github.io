@@ -11,20 +11,18 @@
       <div class="wrapper">
         <div class="home">
           {% assign path = page.path | split:"/" %}
-          {% assign current_slug = path[1] %}
-          {% assign current_market = path[2] %}
+          {% assign current_market = path[1] %}
           {% assign prev_location = '' %}
-          <a href="/instapage_forms">&laquo; Forms</a> <a href="/instapage_forms/{{ current_slug }}"> &laquo; Markets</a>
-          <h1 class="page-heading">{{ current_slug | capitalize }} - {{ current_market | upcase }} - Locations</h1>
+          <a href="/instapage_forms">&laquo; Markets</a>
+          <h1 class="page-heading">{{ current_market | upcase }} - Locations</h1>
           <ul>
             {% for page in site.instapage_forms %}
               {% assign path = page.path | split:"/" %}
-              {% assign slug = path[1] %}
-              {% assign market = path[2] %}
-              {% assign location = path[3] %}
-              {% if slug == current_slug and market == current_market and location != prev_location and location != 'index.html' %}
+              {% assign market = path[1] %}
+              {% assign location = path[2] %}
+              {% if market == current_market and location != prev_location and location != 'index.html' %}
                 <li>
-                  <a href="/instapage_forms/{{ current_slug }}/{{ market }}/{{ location }}">{{ location | capitalize }}</a>
+                  <a href="/instapage_forms/{{ market }}/{{ location }}">{{ location | capitalize }}</a>
                 </li>
               {% endif %}
               {% assign prev_location = market %}

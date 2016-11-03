@@ -1,7 +1,6 @@
 {% assign path = page.path | split:"/" %}
-{% assign slug = path[1] %}
-{% assign market = path[2] %}
-{% assign location = path[3] %}
+{% assign market = path[1] %}
+{% assign location = path[2] %}
 {% assign meta = site.data.instapage[market].meta %}
 
 {% if site.data.instapage[market].copy.size == 2 %}
@@ -44,7 +43,6 @@
 
   <input type="hidden" name="form" value="{{ meta.hubspot-id }}">
   <input type="hidden" name="option_market" value="{{ meta.market }}">
-  <input type="hidden" name="url" value="{{ meta.url }}/{{ slug }}">
   <input type="hidden" name="title" value="{{ meta.title }}">
   <input type="hidden" name="utm_source" value="[utm_source]">
   <input type="hidden" name="utm_medium" value="[utm_medium]">
