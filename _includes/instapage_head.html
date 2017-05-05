@@ -302,6 +302,7 @@
         },
         submitHandler: function(form) {
           $form.find('input[name="submit"]').attr('disabled', true);
+          $form.append('<input type="hidden" name="submit" />');
           var email = $('input#email', $this).val();
           _paq.push(['setUserId', email]);
           var i = 1;
