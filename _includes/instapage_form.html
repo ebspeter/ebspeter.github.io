@@ -14,7 +14,8 @@
   {% include instapage_head.html %}
 {% endif %}
 
-<form accept-charset="UTF-8" action="/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" id="hsForm_{{ location }}" method="POST" class="hs-form stacked">
+<form accept-charset="UTF-8" action="/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" 
+  enctype="multipart/form-data" id="hsForm_{{ location }}" method="POST" class="hs-form stacked" data-form-name="Instapage">
   <input type="text" class="hs-input" id="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}"
     data-msg="{{ copy.firstname.messages.required }}"/>
   <input type="text" class="hs-input" id="lastname" name="lastname" placeholder="{{ copy.lastname.placeholder }}"

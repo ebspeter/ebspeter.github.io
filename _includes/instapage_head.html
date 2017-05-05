@@ -2,9 +2,10 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/wp-content/themes/ebs-v2/css/intlTelInput.css">
-<script type="text/javascript" src="/wp-content/themes/ebs-v2/js/vendor/intlTelInput.js"></script>
-<script type="text/javascript" src="/wp-content/themes/ebs-v2/js/vendor/utils.js"></script>
+<link rel="stylesheet" type="text/css" href="http://cdn.barschool.net/wp-content/themes/ebs-v2/css/intlTelInput.css">
+<script type="text/javascript" src="http://cdn.barschool.net/wp-content/themes/ebs-v2/js/vendor/intlTelInput.js"></script>
+<script type="text/javascript" src="http://cdn.barschool.net/wp-content/themes/ebs-v2/js/vendor/utils.js"></script>
+<script type="text/javascript" src="http://cdn.barschool.net/wp-content/themes/ebs-v2/js/tracking.js"></script>
 
 <style type="text/css">
    /* dev only */
@@ -149,13 +150,7 @@
     $('.itl-phone').intlTelInput({
       autoPlaceholder: true,
       preferredCountries: ["au","dk","fi","fr","de","in","ie","it","nl","no","es","se","gb","us","ar","be","br","cl","gr","mx","pl","pt","ro","za","ch","ve"],
-      geoIpLookup: function(callback) {
-        $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-          var countryCode = (resp && resp.country) ? resp.country : "gb";
-          callback(countryCode);
-        });
-      },
-      initialCountry: "auto",
+      initialCountry: $('#geo-ip').val().toLowerCase(),
     });
 
     // Failed server-side validation, set number from post
@@ -167,18 +162,30 @@
 
     // Keep target input in sync with widget, and clear validation error when valid
     $(".itl-phone").keyup(function() {
+      var $form = $(this).closest('form');
       var value = $(this).intlTelInput("getNumber");
       $('.itlPhoneFull').each(function(){
         $(this).val( value );
       });
-      $('.itlPhoneFull', $(this).parents('form:first')).valid();
+
+      $('.itlPhoneFull', $form).valid();
+      handleSubmitButton($form, 'keyup');
     });
 
-    // Format and sync on blur
+    $('input:not(.itl-phone)').keyup(function(){
+      var $form = $(this).closest('form');
+      if ($form.hasClass('validated')){
+        $(this).valid();
+      }
+      handleSubmitButton($form, 'keyup');
+    })
+
+    // Format and sync all forms on page
     $(".itl-phone").blur(function() {
       var value = $(this).intlTelInput("getNumber");
       $('.itl-phone').each(function(){
         $(this).intlTelInput("setNumber", value, intlTelInputUtils.numberFormat.NATIONAL)
+        $('.itlPhoneFull').valid();
       })
     });
 
@@ -190,7 +197,20 @@
       })
     }, 250);
 
-    $('input:not(#itlPhoneFull)').change(function(){
+    function handleSubmitButton($form, event, errors){
+      var disabled = false;
+      if($form.hasClass('validated')){
+        if(event == 'keyup'){
+          disabled = !$form.valid();
+        } 
+        if (event == 'email-async'){
+          disabled = !(Object.keys(errors).length == 1 && errors.email && errors.email == "true");
+        }	
+        $form.find('input[name="submit"]').attr('disabled', disabled);
+      }
+    };
+
+    $('input:not(#itlPhoneFull)').change(function(e){
       $(this).valid();
     })
 
@@ -209,7 +229,8 @@
 
     $('form').each(function(){
       var $this = this;
-      $(this).validate({
+      var $form = $(this);
+      var validator = $(this).validate({
         ignore: ":hidden:not(#itlPhoneFull)",
         rules: {
           firstname: {
@@ -229,6 +250,12 @@
                 "email-domain": function() {
                   return $("#email").val();
                 }
+              },
+              dataFilter: function (valid) {
+                var errors = Object.assign(validator.invalid);
+                errors.email = valid;
+                handleSubmitButton($form, 'email-async', errors);
+                return valid;
               }
             }
           },
@@ -261,17 +288,44 @@
             $('.info-boxes__box').matchHeight();
           }
         },
+        submitHandler: function(form) {
+          $form.find('input[name="submit"]').attr('disabled', true);
+          var email = $('input#email', $this).val();
+          _paq.push(['setUserId', email]);
+          var i = 1;
+          $('input', $this).each(function(index, elem){
+            var fields = {
+              firstname: 		'First name',
+              lastname: 		'Last name',
+              email: 				'Email',
+              itlPhoneFull: 'Phone number',
+            };
+            if ( Object.keys(fields).indexOf(elem.name) > -1 ){
+              _paq.push(['setCustomVariable', i, fields[elem.name], elem.value, "visit" ]);
+              _paq.push(['setCustomVariable', i, fields[elem.name], elem.value, "page" ]);
+              i++;
+            };
+          });
+          _paq.push(['trackEvent', 'Form', form.getAttribute('data-form-name'), 'Success']);
+          form.submit();
+        },
         invalidHandler: function(event, validator) {
-          if ( $("#itl-phone").intlTelInput("getValidationError") == 0 && !$("#itl-phone").intlTelInput("isValidNumber") ) {
-            var $inputs = $(':input', $this);
-            var values = {};
-            $inputs.each(function() {
-              if ( $(this).val() ){
-                values[this.name] = $(this).val();
-              }
+          var i = 1, values = {}, inputs = [], types = [], data = [];
+
+          // Only report invalid on first seen
+          if ( !$(event.target).hasClass('validated') ){
+            $(event.target).addClass('validated');
+            $('input',this).each(function(){
+              values[this.name] = this.value;
+              if ( $.inArray( $(this)[0].name ["firstname","lastname","email","itlPhoneFull"] )) {
+                _paq.push(['setCustomVariable', i, $(this)[0].name, $(this)[0].value, "page"])
+                i++
+              };
             });
-            $.post( "/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) } );
-          }
+            _paq.push(['trackEvent', 'Form', this.getAttribute('data-form-name'), 'Invalid']);
+            $.post( "/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) });
+            $(event.target).closest('form').find('input[name="submit"]').attr('disabled', true);					
+          };
         },
       });
     });
