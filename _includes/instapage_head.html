@@ -15,6 +15,11 @@
     $("#hsForm_top").attr("target","_self");
     $("#hsForm_bottom").attr("target","_self");
 
+    // Initialise WistiaTracker if wistia embed exist
+    if( $('iframe[name="wistia_embed"]').length || $('div.wistia_embed').length){
+      WistiaTracker.init(true);
+    }
+
     // Forms
     // Input widget
     $('.itl-phone').intlTelInput({
