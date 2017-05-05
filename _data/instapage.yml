@@ -24,7 +24,7 @@ en:
     countrycode: "+44"
     hubspot-id: 33caee8b-be08-4595-9719-66d04178f3ce
     market: EN
-    url: http://barschool.net
+    url: http://www.barschool.net
     title: Free Brochure
     timezone: "+10:00"
     submit-text: Download Brochure
@@ -55,7 +55,7 @@ dk:
     countrycode: "+45"
     hubspot-id: cf18ad53-ecca-48e4-80e6-b70868ec3b1d
     market: DK
-    url: http://www-bartenderskolen-dk.barschool.staging.wpengine.com
+    url: http://www.bartenderskolen.dk
     title: Gratis Broshyr
     timezone: "+01:00"
     submit-text: Download Nu!
@@ -345,6 +345,17 @@ in:
     hubspot-id: 976cc131-cfdc-4ebc-aed0-bd23614acf63
     market: IN
     url: http://www.bartenderschool.in
+    title: Get a free brochure
+    timezone: "+05:00"
+    submit-text: Download Brochure
+
+staging:
+  copy: en
+  meta:
+    countrycode: "+44"
+    hubspot-id: 976cc131-cfdc-4ebc-aed0-bd23614acf63
+    market: EN
+    url: http://barschool.staging.wpengine.com
     title: Get a free brochure
     timezone: "+05:00"
     submit-text: Download Brochure

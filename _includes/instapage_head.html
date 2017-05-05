@@ -113,6 +113,11 @@
   button:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover{
    	 background-color: #363635;
   }
+  
+  input[disabled="disabled"], input[disabled="disabled"]:hover{
+    background-color: #9a9a98;
+    cursor: not-allowed;
+  }
 
   @media only screen and (max-width: 640px){
     input[type="submit"]{
@@ -250,7 +255,7 @@
             email: true,
             RFC2822Email: true,
             remote: {
-              url: "http://barschool.net/wp-content/themes/ebs-v2/check.php",
+              url: "{{ meta.url }}/wp-content/themes/ebs-v2/check.php",
               type: "post",
               data: {
                 "email-domain": function() {
@@ -329,7 +334,7 @@
               };
             });
             _paq.push(['trackEvent', 'Form', this.getAttribute('data-form-name'), 'Invalid']);
-            $.post( "/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) });
+            $.post( "{{ meta.url }}/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) });
             $(event.target).closest('form').find('input[name="submit"]').attr('disabled', true);					
           };
         },
