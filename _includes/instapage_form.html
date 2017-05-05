@@ -1,5 +1,6 @@
 {% assign path = page.path | split:"/" %}
-{% assign market = path[1] %}
+{% assign variation = path[1] %}
+{% assign market = path[2] %}
 
 {% if market == 'staging' %}
   {% assign trackingServer = "http://trackstaging.ebs-platform.com/" %}
@@ -9,7 +10,7 @@
   {% assign network = '["www-barschool-net.barschool.staging.wpengine.com","www-barschool-es.barschool.staging.wpengine.com","www-barschool-fi.barschool.staging.wpengine.com","www-barschool-net-au.barschool.staging.wpengine.com","www-bartenderschool-fr.barschool.staging.wpengine.com","www-bartenderschool-ie.barschool.staging.wpengine.com","www-bartenderschool-in.barschool.staging.wpengine.com","www-bartenderschool-it.barschool.staging.wpengine.com","www-bartenderschool-nl.barschool.staging.wpengine.com","www-bartenderschule-com.barschool.staging.wpengine.com","www-bartenderskolan-com.barschool.staging.wpengine.com","www-bartenderskolen-com.barschool.staging.wpengine.com","www-bartenderskolen-dk.barschool.staging.wpengine.com","www-ebsbarschools-com.barschool.staging.wpengine.com","booking.ebs-platform.com","fast.wistia.net"]' %}
 {% endif %}
 
-{% assign location = path[2] %}
+{% assign location = path[3] %}
 {% assign meta = site.data.instapage[market].meta %}
 
 {% if site.data.instapage[market].copy.size == 2 %}
