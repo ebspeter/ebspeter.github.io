@@ -252,6 +252,11 @@
          border-radius: 8px;
   }
 
+  input[disabled="disabled"], input[disabled="disabled"]:hover{
+    background-color: #9a9a98;
+    cursor: not-allowed;
+  }
+
   @media only screen and (max-width: 640px){
     input[type="submit"]{
       margin-top: 50px;
@@ -281,7 +286,6 @@
 <style type="text/css">
    /* dev only */
   /*body{
-    compact
     max-width: 430px;
     height: 500px;
     margin: 0 auto;
@@ -392,6 +396,11 @@
          background-color: #2aba6b;
          border-radius: 22px;
          -webkit-appearance: none;
+  }
+
+  input[disabled="disabled"], input[disabled="disabled"]:hover{
+    background-color: #9a9a98;
+    cursor: not-allowed;
   }
 
   @media only screen and (max-width: 640px){
