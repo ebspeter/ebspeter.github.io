@@ -150,7 +150,13 @@
     $('.itl-phone').intlTelInput({
       autoPlaceholder: true,
       preferredCountries: ["au","dk","fi","fr","de","in","ie","it","nl","no","es","se","gb","us","ar","be","br","cl","gr","mx","pl","pt","ro","za","ch","ve"],
-      initialCountry: $('#geo-ip').val().toLowerCase(),
+      geoIpLookup: function(callback) {
+        $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+          var countryCode = (resp && resp.country) ? resp.country : "gb";
+          callback(countryCode);
+        });
+      },
+      initialCountry: "auto",
     });
 
     // Failed server-side validation, set number from post
