@@ -24,6 +24,10 @@
   {% include instapage_head.html %}
 {% endif %}
 
+{% if variation == 'compact' %}
+<div style="height:100%; width:100%; background-color:#575c6a; padding:20px; border-radius:8px; box-shadow: 2px 2px 15px #97999e"> 
+{% endif %}
+
 <form accept-charset="UTF-8" action="{{ meta.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" 
   enctype="multipart/form-data" id="hsForm_{{ location }}" method="POST" class="hs-form stacked" data-form-name="Instapage">
   <input type="text" class="hs-input" id="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}"
@@ -93,5 +97,8 @@
 </script>
 <noscript><p><img src="{{ trackingServer }}/piwik.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 <!-- End Piwik Code -->
+{% if variation == 'compact' %}
+</div>
+{% endif %}
 
 
