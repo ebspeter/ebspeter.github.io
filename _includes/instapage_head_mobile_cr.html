@@ -15,11 +15,6 @@
     $("#hsForm_top").attr("target","_self");
     $("#hsForm_bottom").attr("target","_self");
 
-    // Initialise WistiaTracker if wistia embed exist
-    if( $('iframe[name="wistia_embed"]').length || $('div.wistia_embed').length){
-      WistiaTracker.init(true);
-    }
-
     // Forms
     // Input widget
     $('.itl-phone').intlTelInput({
@@ -43,30 +38,18 @@
 
     // Keep target input in sync with widget, and clear validation error when valid
     $(".itl-phone").keyup(function() {
-      var $form = $(this).closest('form');
       var value = $(this).intlTelInput("getNumber");
       $('.itlPhoneFull').each(function(){
         $(this).val( value );
       });
-
-      $('.itlPhoneFull', $form).valid();
-      handleSubmitButton($form, 'keyup');
+      $('.itlPhoneFull', $(this).parents('form:first')).valid();
     });
 
-    $('input:not(.itl-phone)').keyup(function(){
-      var $form = $(this).closest('form');
-      if ($form.hasClass('validated')){
-        $(this).valid();
-      }
-      handleSubmitButton($form, 'keyup');
-    })
-
-    // Format and sync all forms on page
+    // Format and sync on blur
     $(".itl-phone").blur(function() {
       var value = $(this).intlTelInput("getNumber");
       $('.itl-phone').each(function(){
         $(this).intlTelInput("setNumber", value, intlTelInputUtils.numberFormat.NATIONAL)
-        $('.itlPhoneFull').valid();
       })
     });
 
@@ -78,20 +61,7 @@
       })
     }, 250);
 
-    function handleSubmitButton($form, event, errors){
-      var disabled = false;
-      if($form.hasClass('validated')){
-        if(event == 'keyup'){
-          disabled = !$form.valid();
-        } 
-        if (event == 'email-async'){
-          disabled = !(Object.keys(errors).length == 1 && errors.email && errors.email == "true");
-        }	
-        $form.find('input[name="submit"]').attr('disabled', disabled);
-      }
-    };
-
-    $('input:not(#itlPhoneFull)').change(function(e){
+    $('input:not(#itlPhoneFull)').change(function(){
       $(this).valid();
     })
 
@@ -110,8 +80,7 @@
 
     $('form').each(function(){
       var $this = this;
-      var $form = $(this);
-      var validator = $(this).validate({
+      $(this).validate({
         ignore: ":hidden:not(#itlPhoneFull)",
         rules: {
           firstname: {
@@ -125,18 +94,12 @@
             email: true,
             RFC2822Email: true,
             remote: {
-              url: "{{ meta.url }}/wp-content/themes/ebs-v2/check.php",
+              url: "/wp-content/themes/ebs-v2/check.php",
               type: "post",
               data: {
                 "email-domain": function() {
                   return $("#email").val();
                 }
-              },
-              dataFilter: function (valid) {
-                var errors = Object.assign(validator.invalid);
-                errors.email = valid;
-                handleSubmitButton($form, 'email-async', errors);
-                return valid;
               }
             }
           },
@@ -170,44 +133,42 @@
           }
         },
         submitHandler: function(form) {
-          $form.find('input[name="submit"]').attr('disabled', true);
-          $form.append('<input type="hidden" name="submit" />');
+          var fields = {
+            firstname: 		'First name',
+            lastname: 		'Last name',
+            email: 				'Email',
+            itlPhoneFull: 'Phone number',
+          };
           var email = $('input#email', $this).val();
-          _paq.push(['setUserId', email]);
           var i = 1;
+          _paq.push(['setUserId', email]);
           $('input', $this).each(function(index, elem){
-            var fields = {
-              firstname: 		'First name',
-              lastname: 		'Last name',
-              email: 				'Email',
-              itlPhoneFull: 'Phone number',
-            };
             if ( Object.keys(fields).indexOf(elem.name) > -1 ){
               _paq.push(['setCustomVariable', i, fields[elem.name], elem.value, "visit" ]);
               _paq.push(['setCustomVariable', i, fields[elem.name], elem.value, "page" ]);
               i++;
             };
           });
-          _paq.push(['trackEvent', 'Form', form.getAttribute('data-form-name'), 'Success']);
+          _paq.push(['trackEvent', 'Form', 'Instapage', 'Success']);
           form.submit();
         },
         invalidHandler: function(event, validator) {
-          var i = 1, values = {}, inputs = [], types = [], data = [];
-
-          // Only report invalid on first seen
-          if ( !$(event.target).hasClass('validated') ){
-            $(event.target).addClass('validated');
-            $('input',this).each(function(){
-              values[this.name] = this.value;
+          if ( $("#itl-phone").intlTelInput("getValidationError") == 0 && !$("#itl-phone").intlTelInput("isValidNumber") ) {
+            var $inputs = $(':input', $this);
+            var values = {};
+            var i = 1;
+            $inputs.each(function() {
+              if ( $(this).val() ){
+                values[this.name] = $(this).val();
+              };
               if ( $.inArray( $(this)[0].name ["firstname","lastname","email","itlPhoneFull"] )) {
                 _paq.push(['setCustomVariable', i, $(this)[0].name, $(this)[0].value, "page"])
                 i++
               };
             });
-            _paq.push(['trackEvent', 'Form', this.getAttribute('data-form-name'), 'Invalid']);
-            $.post( "{{ meta.url }}/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) });
-            $(event.target).closest('form').find('input[name="submit"]').attr('disabled', true);					
-          };
+            _paq.push(['trackEvent', 'Form', 'Instapage', 'Invalid']);
+            $.post( "/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) } );
+          }
         },
       });
     });
