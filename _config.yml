@@ -24,8 +24,12 @@ github_username:  ebspeter
 # Build settings
 markdown: kramdown
 theme: minima
+exclude: [node_modules]
 
 collections:
-  instapage_forms:
+#  instapage_forms:
+#    output: true
+#    permalink: /:collection/:path
+  form_v2:
     output: true
     permalink: /:collection/:path
