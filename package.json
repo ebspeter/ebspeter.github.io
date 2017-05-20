@@ -1,0 +1,22 @@
+{
+  "name": "ebspeter.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebspeter/ebspeter.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebspeter/ebspeter.github.io/issues"
+  },
+  "homepage": "https://github.com/ebspeter/ebspeter.github.io#readme",
+  "dependencies": {
+    "flightplan": "^0.6.16"
+  }
+}
