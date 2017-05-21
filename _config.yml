@@ -30,6 +30,6 @@ collections:
 #  instapage_forms:
 #    output: true
 #    permalink: /:collection/:path
-  form_v2:
+  v2:
     output: true
     permalink: /:collection/:path

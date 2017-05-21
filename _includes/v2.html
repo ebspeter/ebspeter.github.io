@@ -1,0 +1,33 @@
+{% assign path = page.path | split:"/" %}
+{% assign variation = path[1] %}
+{% assign market = path[2] %}
+{% assign location = path[3] %}
+{% assign meta = site.data.instapage[market].meta %}
+
+{% capture html %}{% include html/{{meta.htmlVersion}}.html %}{% endcapture %}
+{% capture styles %}{% include styles/{{variation}}.scss %}{% endcapture %}
+
+
+
+{% if location == 'top' %}
+  (function(){
+    var styles = '<style type="text/css">{{ styles | scssify | strip_newlines }}</style>';
+    var html = '{{ html | strip_newlines }}';
+    var parent = document.getElementById('form');
+    parent.innerHTML = styles + html;
+  })();
+  {% include js/{{meta.jsVersion}}.js %}
+  {% include piwik.js %}
+{% else %}
+  (function(){
+    var html = '{{ html | strip_newlines }}';
+    var parent = document.getElementById('form');
+    parent.innerHTML = html;
+  })();
+{% endif %}
+
+
+
+
+
+

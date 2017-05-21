@@ -13,7 +13,7 @@ en:
       messages:
         required: Please enter your email
         format: Please enter a valid email
-        domain: Email domain don't exist
+        domain: Email domain don‘t exist
     phone:
       placeholder: Phone Number
       messages:
@@ -28,6 +28,8 @@ en:
     title: Free Brochure
     timezone: "+10:00"
     submit-text: Download Brochure
+    htmlVersion: v2
+    jsVersion: v2
 
 dk:
   copy:
@@ -59,6 +61,8 @@ dk:
     title: Gratis Broshyr
     timezone: "+01:00"
     submit-text: Download Nu!
+    htmlVersion: v2
+    jsVersion: v3
 
 sv:
   copy:
@@ -90,7 +94,9 @@ sv:
     title: Bartending Course at European Bartender School
     timezone: "+01:00"
     submit-text: Ladda ner din broschyr gratis
-
+    htmlVersion: v2
+    jsVersion: v2
+    
 'no':
   copy:
     firstname:
@@ -121,7 +127,9 @@ sv:
     title: Last ned en gratis brosjyre
     timezone: "+01:00"
     submit-text: Last ned nå!
-
+    htmlVersion: v2
+    jsVersion: v2
+    
 nl:
   copy:
     firstname:
@@ -152,7 +160,9 @@ nl:
     title: Download de brochure gratis
     timezone: "+01:00"
     submit-text: DOWNLOAD NU!
-
+    htmlVersion: v2
+    jsVersion: v2
+    
 de:
   copy:
     firstname:
@@ -183,7 +193,9 @@ de:
     title: Hole dir die gratis Brochüre
     timezone: "+01:00"
     submit-text: JETZT DOWNLOADEN
-
+    htmlVersion: v2
+    jsVersion: v2
+    
 fr:
   copy:
     firstname:
@@ -199,7 +211,7 @@ fr:
       messages:
         required: Indique ton adresse email STP
         format: Indique une adresse email valide STP
-        domain: L'adresse email indiquée n'existe pas
+        domain: L‘adresse email indiquée n‘existe pas
     phone:
       placeholder: Numéro de téléphone
       messages:
@@ -214,7 +226,9 @@ fr:
     title: Télécharge une brochure gratuitement
     timezone: "+01:00"
     submit-text: TÉLÉCHARGE MAINTENANT !
-
+    htmlVersion: v2
+    jsVersion: v2
+    
 es:
   copy:
     firstname:
@@ -245,7 +259,9 @@ es:
     title: Descarga gratis nuestro folleto
     timezone: "+01:00"
     submit-text: ¡DESCARGAR AHORA!
-
+    htmlVersion: v2
+    jsVersion: v2
+    
 it:
   copy:
     firstname:
@@ -261,7 +277,7 @@ it:
       messages:
         required: Per favore, inserisci la tua email
         format: Per favore, inserisci un indirizzo email valido
-        domain: L'indirizzo inserito è inesistente
+        domain: L‘indirizzo inserito è inesistente
     phone:
       placeholder: Numero di telefono
       messages:
@@ -276,7 +292,9 @@ it:
     title: Scarica la brochure gratuita
     timezone: "+01:00"
     submit-text: SCARICALA SUBITO!
-
+    htmlVersion: v2
+    jsVersion: v2
+    
 fi:
   copy:
     firstname:
@@ -307,7 +325,9 @@ fi:
     title: Lataa esite ilmaiseksi
     timezone: "+01:00"
     submit-text: LATAA NYT!
-
+    htmlVersion: v2
+    jsVersion: v2
+    
 au:
   copy: en
   meta:
@@ -318,6 +338,9 @@ au:
     title: Bartending Course at European Bartender School
     timezone: "+10:00"
     submit-text: Download Brochure
+    htmlVersion: v2
+    jsVersion: v2
+    
 ie:
   copy: en
   meta:
@@ -328,6 +351,9 @@ ie:
     title: Get a free brochure
     timezone: "+00:00"
     submit-text: Download Brochure
+    htmlVersion: v2
+    jsVersion: v2
+    
 us:
   copy: en
   meta:
@@ -338,6 +364,9 @@ us:
     title: Get a free brochure
     timezone: "-05:00"
     submit-text: Download Brochure
+    htmlVersion: v2
+    jsVersion: v2
+    
 in:
   copy: en
   meta:
@@ -348,7 +377,9 @@ in:
     title: Get a free brochure
     timezone: "+05:00"
     submit-text: Download Brochure
-
+    htmlVersion: v2
+    jsVersion: v2
+    
 staging:
   copy: en
   meta:
@@ -359,3 +390,6 @@ staging:
     title: Get a free brochure
     timezone: "+05:00"
     submit-text: Download Brochure
+    htmlVersion: v2
+    jsVersion: v2
+    
