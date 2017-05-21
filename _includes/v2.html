@@ -13,7 +13,7 @@
   (function(){
     var styles = '<style type="text/css">{{ styles | scssify | strip_newlines }}</style>';
     var html = '{{ html | strip_newlines }}';
-    var parent = document.getElementById('form');
+    var parent = document.getElementById('form-top');
     parent.innerHTML = styles + html;
   })();
   {% include js/{{meta.jsVersion}}.js %}
@@ -21,7 +21,7 @@
 {% else %}
   (function(){
     var html = '{{ html | strip_newlines }}';
-    var parent = document.getElementById('form');
+    var parent = document.getElementById('form-bottom');
     parent.innerHTML = html;
   })();
 {% endif %}
