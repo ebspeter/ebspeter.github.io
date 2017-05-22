@@ -28,6 +28,32 @@
   .error::-moz-placeholder { color: $error-color; }
   .error:-ms-input-placeholder { color: $error-color; }
 
+
+  @-webkit-keyframes autofill-error {
+      to {
+          background-color: #fff;
+          background-image: url(/wp-content/themes/ebs-v2/images/min/invalid.png);
+      }
+  }
+
+  @-webkit-keyframes autofill-valid {
+      to {
+          background-color: #fff;
+          background-image: url(/wp-content/themes/ebs-v2/images/min/valid.png);
+      }
+  }
+
+  input.error:-webkit-autofill {
+      -webkit-animation-name: autofill-error;
+      -webkit-animation-fill-mode: both;
+  }
+
+  input.valid:-webkit-autofill {
+      -webkit-animation-name: autofill-valid;
+      -webkit-animation-fill-mode: both;
+  }
+
+
   .input-container{
     height: 70px;
     text-align: left;

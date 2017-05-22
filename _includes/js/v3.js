@@ -24,40 +24,6 @@ $(document).ready(function(){
     initialCountry: "auto",
   });
 
-  /*Failed server-side validation, set number from post*/
-  $('.post-itl-phone').each(function () {
-    var target = $('#itl-phone', $(this).parent());
-    target.intlTelInput("setNumber", $(this).val(), intlTelInputUtils.numberFormat.NATIONAL);
-    $(this).prev().val( $(this).val() );
-  });
-
-  /*Keep target input in sync with widget, and clear validation error when valid*/
-  $(".itl-phone").keyup(function() {
-    var $form = $(this).closest('form');
-    var value = $(this).intlTelInput("getNumber");
-    $('.itlPhoneFull').each(function(){
-      $(this).val( value );
-    });
-
-    if ($(this).hasClass('touched')){
-      var valid = $(this).valid();
-      $form.find('.intl-tel-input').addClass( valid ? 'valid':'error').removeClass( valid ? 'error':'valid');
-    };
-  });
-
-  /*Format and sync on blur*/
-  $(".itl-phone").blur(function() {
-    var value = $(this).intlTelInput("getNumber");
-    var $form = $(this).closest('form');
-    $(this).addClass('touched');
-    var valid = $form.find('.itlPhoneFull').valid();
-    $form.find('.intl-tel-input').addClass( valid ? 'valid':'error').removeClass( valid ? 'error':'valid');
-
-    $('.itl-phone').each(function(){
-      $(this).intlTelInput("setNumber", value, intlTelInputUtils.numberFormat.NATIONAL)
-    });
-  });
-
   /*Keep watching the inputs for change (browser autofill fix)*/
   setInterval(function() {
     $('input').each(function() {
@@ -66,26 +32,26 @@ $(document).ready(function(){
     })
   }, 250);
 
-  $('input:not(.itlPhoneFull)').change(function(){
+  $('input').change(function(){
     if( $(this).hasClass('error') || $(this).hasClass('valid')){
-      $(this).valid();
+      updatePhoneContainer( $(this) );
     };
   });
 
-  $('input:not(.itlPhoneFull)').blur(function(){
-    $(this).valid();
+  $('input').blur(function(){
+    updatePhoneContainer( $(this) );
   });
 
-  $('.itl-phone').change(function(){
-    var $form = $(this).closest('form');
-    var $element = $form.find('.itlPhoneFull');
-    var value = $(this).intlTelInput("getNumber");
-    if ($element.val() !== value){
-      $element.val( $(this).intlTelInput("getNumber") );
-      var valid = $element.valid();
-      $form.find('.intl-tel-input').addClass( valid ? 'valid':'error').removeClass( valid ? 'error':'valid');
-    }
+  $('.itl-phone').keyup(function(){
+    updatePhoneContainer($(this))
   });
+
+  function updatePhoneContainer($element){
+    var valid = $element.valid();
+    if( $element.hasClass('itl-phone')){
+      $element.closest('form').find('.intl-tel-input').addClass( valid ? 'valid':'error').removeClass( valid ? 'error':'valid');
+    };
+  };
 
   /*Helper function to set validation messages from data-msg on inputs*/
   function getMsg(selector, context, type) {
@@ -95,7 +61,7 @@ $(document).ready(function(){
   $('form').each(function(){
     var $this = this;
     $(this).validate({
-      ignore: ":hidden:not(#itlPhoneFull)",
+      ignore: ":hidden",
       rules: {
         firstname: {
           required: true,
@@ -144,13 +110,14 @@ $(document).ready(function(){
           firstname: 		'First name',
           lastname: 		'Last name',
           email: 				'Email',
-          itlPhoneFull: 'Phone number',
+          'itl-phone':  'Phone number',
         };
-        var email = $('input#email', $this).val();
+        var email = $('input[name="email"]', $this).val();
         var i = 1;
         _paq.push(['setUserId', email]);
         $('input', $this).each(function(index, elem){
           if ( Object.keys(fields).indexOf(elem.name) > -1 ){
+            /* swith on itl-phone here */
             _paq.push(['setCustomVariable', i, fields[elem.name], elem.value, "visit" ]);
             _paq.push(['setCustomVariable', i, fields[elem.name], elem.value, "page" ]);
             i++;
@@ -166,9 +133,10 @@ $(document).ready(function(){
           var i = 1;
           $inputs.each(function() {
             if ( $(this).val() ){
+              /* switch on itl-phone here */
               values[this.name] = $(this).val();
             };
-            if ( $.inArray( $(this)[0].name ["firstname","lastname","email","itlPhoneFull"] )) {
+            if ( $.inArray( $(this)[0].name ["firstname","lastname","email","itl-phone"] )) {
               _paq.push(['setCustomVariable', i, $(this)[0].name, $(this)[0].value, "page"]);
               i++
             };
