@@ -13,13 +13,14 @@ $(document).ready(function(){
   /*Forms*/
   $('.itl-phone').intlTelInput({
     autoPlaceholder: true,
-    preferredCountries: ["au","dk","fi","fr","de","in","ie","it","nl","no","es","se","gb","us","ar","be","br","cl","gr","mx","pl","pt","ro","za","ch","ve"],
+    preferredCountries: ["au","be","ch","de","dk","es","fi","fr","gb","ie","it","nl","no","se","us","pl","pt","za"],
     geoIpLookup: function(callback) {
       $.post("/wp-content/themes/ebs-v2/check.php", {ip: true}).always(function(resp) {
         var countryCode = (resp) ? resp : "{{ country }}";
         callback(countryCode);
       });
     },
+    separateDialCode: false,
     initialCountry: "auto",
   });
 
@@ -32,39 +33,58 @@ $(document).ready(function(){
 
   /*Keep target input in sync with widget, and clear validation error when valid*/
   $(".itl-phone").keyup(function() {
+    var $form = $(this).closest('form');
     var value = $(this).intlTelInput("getNumber");
     $('.itlPhoneFull').each(function(){
       $(this).val( value );
     });
-    $('.itlPhoneFull', $(this).parents('form:first')).valid();
+
+    if ($(this).hasClass('touched')){
+      var valid = $(this).valid();
+      $form.find('.intl-tel-input').addClass( valid ? 'valid':'error').removeClass( valid ? 'error':'valid');
+    };
   });
 
   /*Format and sync on blur*/
   $(".itl-phone").blur(function() {
     var value = $(this).intlTelInput("getNumber");
+    var $form = $(this).closest('form');
+    $(this).addClass('touched');
+    var valid = $form.find('.itlPhoneFull').valid();
+    $form.find('.intl-tel-input').addClass( valid ? 'valid':'error').removeClass( valid ? 'error':'valid');
+
     $('.itl-phone').each(function(){
       $(this).intlTelInput("setNumber", value, intlTelInputUtils.numberFormat.NATIONAL)
-    })
+    });
   });
 
   /*Keep watching the inputs for change (browser autofill fix)*/
-  setTimeout(function() {
+  setInterval(function() {
     $('input').each(function() {
       var elem = $(this);
       if (elem.val()) elem.change();
     })
   }, 250);
 
-  $('input:not(#itlPhoneFull)').change(function(){
+  $('input:not(.itlPhoneFull)').change(function(){
+    if( $(this).hasClass('error') || $(this).hasClass('valid')){
+      $(this).valid();
+    };
+  });
+
+  $('input:not(.itlPhoneFull)').blur(function(){
     $(this).valid();
   });
 
-  $('#itl-phone').change(function(){
-    element = $(this).closest('form').find('#itlPhoneFull');
-    phoneCountry = $(this).closest('form').find('#phone-country');
-    element.val( $(this).intlTelInput("getNumber") );
-    phoneCountry.val( $(this).intlTelInput("getSelectedCountryData").iso2 );
-    element.valid();
+  $('.itl-phone').change(function(){
+    var $form = $(this).closest('form');
+    var $element = $form.find('.itlPhoneFull');
+    var value = $(this).intlTelInput("getNumber");
+    if ($element.val() !== value){
+      $element.val( $(this).intlTelInput("getNumber") );
+      var valid = $element.valid();
+      $form.find('.intl-tel-input').addClass( valid ? 'valid':'error').removeClass( valid ? 'error':'valid');
+    }
   });
 
   /*Helper function to set validation messages from data-msg on inputs*/
@@ -100,7 +120,7 @@ $(document).ready(function(){
         countrycode: {
           required: true,
         },
-        itlPhoneFull: {
+        'itl-phone': {
           required: true,
           phone_valid: true,
         }
@@ -114,17 +134,10 @@ $(document).ready(function(){
           RFC2822Email: getMsg('input[name="email"]', $this, 'data-msg-format'),
           remote: getMsg('input[name="email"]', $this, 'data-msg-domain'),
         },
-        countrycode: getMsg('input[name="countrycode"]', $this, 'data-msg-required'),
-        itlPhoneFull: {
-          required: getMsg('input[name="phone"]', $this, 'data-msg-required'),
-          phone_valid: getMsg('#itlPhoneFull', $this, 'data-msg-valid'),
+        'itl-phone': {
+          required: getMsg('.itl-phone', $this, 'data-msg-required'),
+          phone_valid: getMsg('.itl-phone', $this, 'data-msg-valid'),
         },
-      },
-      errorPlacement: function(error, element) {
-        error.appendTo( $('.validation-messages', $this) ).css("display", "block").addClass('sf-validation');
-        if (typeof $.fn.matchHeight !== 'undefined'){
-          $('.info-boxes__box').matchHeight();
-        }
       },
       submitHandler: function(form) {
         var fields = {
@@ -168,7 +181,8 @@ $(document).ready(function(){
   });
 
   jQuery.validator.addMethod("RFC2822Email", function(value, element) {
-      return this.optional( element ) || ( /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test( value ) );
+    value = value.toLowerCase();
+    return this.optional( element ) || ( /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test( value ) );
   });
 
   jQuery.validator.addMethod("phone_possible", function(value, element) {
@@ -179,7 +193,7 @@ $(document).ready(function(){
 
   jQuery.validator.addMethod("phone_valid", function(value, element) {
     var form = $(element).parents('form:first');
-    return $("#itl-phone", form).intlTelInput("isValidNumber");
+    return $(element).intlTelInput("isValidNumber");
   });
 
   jQuery('input[name="js"]').val('1');
