@@ -110,11 +110,12 @@ $(document).ready(function(){
       submitHandler: function(form) {
         $(form).find('.loader').show();
         $(form).find('input[type="submit"]').val('Please wait..');
+        $(form).find('.itlPhoneFull').val( $(form).find('.itl-phone').intlTelInput("getNumber") );
         var fields = {
           firstname: 		'First name',
           lastname: 		'Last name',
           email: 				'Email',
-          'itl-phone':  'Phone number',
+          itlPhoneFull: 'Phone number',
         };
         var email = $('input[name="email"]', $this).val();
         var i = 1;
