@@ -9,7 +9,7 @@
     {% assign site_url = meta.url | replace:'.','-' | append: '.barschool.staging.wpengine.com' %}
   {% else %}
     {% assign site_url = 'http://barschool.staging.wpengine.com' %}
-  {% endif %}}
+  {% endif %}
 {% else %}
   {% assign site_url = meta.url %}
 {% endif %}
