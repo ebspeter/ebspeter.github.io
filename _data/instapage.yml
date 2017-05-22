@@ -63,7 +63,7 @@ dk:
     timezone: "+01:00"
     submit-text: Download Nu!
     htmlVersion: v2
-    jsVersion: v3
+    jsVersion: v2
 
 sv:
   copy:

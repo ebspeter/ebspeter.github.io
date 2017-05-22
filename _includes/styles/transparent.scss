@@ -32,14 +32,14 @@
   @-webkit-keyframes autofill-error {
       to {
           background-color: #fff;
-          background-image: url(/wp-content/themes/ebs-v2/images/min/invalid.png);
+          background-image: url({{ site_url }}/wp-content/themes/ebs-v2/images/min/invalid.png);
       }
   }
 
   @-webkit-keyframes autofill-valid {
       to {
           background-color: #fff;
-          background-image: url(/wp-content/themes/ebs-v2/images/min/valid.png);
+          background-image: url({{ site_url }}/wp-content/themes/ebs-v2/images/min/valid.png);
       }
   }
 
@@ -75,10 +75,10 @@
     font-family: "Lato", sans serif;
     width: 100%;
     &.error{
-      background-image: url(/wp-content/themes/ebs-v2/images/min/invalid.png);
+      background-image: url({{ site_url }}/wp-content/themes/ebs-v2/images/min/invalid.png);
     }
     &.valid{
-      background-image: url(/wp-content/themes/ebs-v2/images/min/valid.png);
+      background-image: url({{ site_url }}/wp-content/themes/ebs-v2/images/min/valid.png);
     }
   }
 
@@ -161,7 +161,7 @@
     z-index: 9999;
   }
   .iti-flag {
-    background-image: url("/wp-content/themes/ebs-v2/images/min/flags.png") !important;
+    background-image: url("{{ site_url }}/wp-content/themes/ebs-v2/images/min/flags.png") !important;
   }
 
   @media only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -171,7 +171,7 @@
   only screen and (min-resolution: 192dpi),
   only screen and (min-resolution: 2dppx) {
     .iti-flag {
-      background-image: url("/wp-content/themes/ebs-v2/images/min/flags@2x.png") !important;
+      background-image: url("{{ site_url }}/wp-content/themes/ebs-v2/images/min/flags@2x.png") !important;
     }
   }
 
