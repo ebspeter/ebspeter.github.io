@@ -24,12 +24,13 @@ en:
     countrycode: "+44"
     hubspot-id: 33caee8b-be08-4595-9719-66d04178f3ce
     market: EN
+    countryAlpha2: GB
     url: http://www.barschool.net
     title: Free Brochure
     timezone: "+10:00"
     submit-text: Download Brochure
     htmlVersion: v2
-    jsVersion: v2
+    jsVersion: v3
 
 dk:
   copy:

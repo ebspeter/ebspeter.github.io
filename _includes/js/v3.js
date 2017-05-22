@@ -1,11 +1,22 @@
+{% assign path = page.path | split:"/" %}
+{% assign market = path[2] %}
+{% assign meta = site.data.instapage[market].meta %}
+
+{% if meta.countryAlpha2.size > 0 %}
+  {% assign country = meta.countryAlpha2 %}
+{% else %}
+  {% assign country = meta.market %}
+{% endif %}
+
 $(document).ready(function(){
+  console.log('v3.js');
   /*Forms*/
   $('.itl-phone').intlTelInput({
     autoPlaceholder: true,
     preferredCountries: ["au","dk","fi","fr","de","in","ie","it","nl","no","es","se","gb","us","ar","be","br","cl","gr","mx","pl","pt","ro","za","ch","ve"],
     geoIpLookup: function(callback) {
-      $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-        var countryCode = (resp && resp.country) ? resp.country : "gb";
+      $.post("/wp-content/themes/ebs-v2/check.php", {ip: true}).always(function(resp) {
+        var countryCode = (resp) ? resp : "{{ country }}";
         callback(countryCode);
       });
     },

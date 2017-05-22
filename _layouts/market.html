@@ -12,19 +12,20 @@
         <div class="home">
           {% assign path = page.path | split:"/" %}
           {% assign current_variation = path[1] %}
+          {% assign template = path[0] | slice: 1, path[0].size %}
           {% assign current_market = path[2] %}
           {% assign prev_location = '' %}
-          <a href="/instapage_forms">&laquo; Markets</a>
+          <a href="/{{ template }}">&laquo; Markets</a>
           <h1 class="page-heading">{{ current_market | upcase }} - Locations</h1>
           <ul>
-            {% for page in site.instapage_forms %}
+            {% for page in site[template] %}
               {% assign path = page.path | split:"/" %}
               {% assign variation = path[1] %}
               {% assign market = path[2] %}
               {% assign location = path[3] %}
               {% if variation == current_variation and market == current_market and location != prev_location and location != 'index.html' %}
                 <li>
-                  <a href="/instapage_forms/{{ variation }}/{{ market }}/{{ location }}">{{ location | capitalize }}</a>
+                  <a href="/{{ template }}/{{ variation }}/{{ market }}/{{ location }}">{{ location | capitalize }}</a>
                 </li>
               {% endif %}
               {% assign prev_location = market %}

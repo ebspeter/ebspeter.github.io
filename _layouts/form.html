@@ -11,15 +11,17 @@
       <div class="wrapper">
         <div class="home">
           {% assign path = page.path | split:"/" %}
+          {% assign template = path[0] | slice: 1, path[0].size %}
+          {{ template }}
           {% assign prev_variation = '' %}
           <h1 class="page-heading">Variations</h1>
           <ul>
-            {% for page in site.instapage_forms %}
+            {% for page in site[template] %}
               {% assign path = page.path | split:"/" %}
               {% assign variation = path[1] %}
               {% if variation != prev_variation and variation != 'index.html' %}
                 <li>
-                    <a href="/instapage_forms/{{ variation }}">{{ variation | upcase }}</a>
+                    <a href="/{{ template }}/{{ variation }}">{{ variation | upcase }}</a>
                 </li>
               {% endif %}
               {% assign prev_variation = variation %}
