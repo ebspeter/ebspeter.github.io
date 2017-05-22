@@ -42,8 +42,10 @@ $(document).ready(function(){
     updatePhoneContainer( $(this) );
   });
 
-  $('.itl-phone').keyup(function(){
-    updatePhoneContainer($(this))
+  $('.itl-phone').keyup(function(e){
+    if( $(this).hasClass('error') || $(this).hasClass('valid') ){
+      updatePhoneContainer($(this));
+    };
   });
 
   function updatePhoneContainer($element){
@@ -106,6 +108,8 @@ $(document).ready(function(){
         },
       },
       submitHandler: function(form) {
+        $(form).find('.loader').show();
+        $(form).find('input[type="submit"]').val('Please wait..');
         var fields = {
           firstname: 		'First name',
           lastname: 		'Last name',

@@ -134,6 +134,16 @@
       -webkit-appearance: none;
     }
   }
+  .submit-container{
+    position: relative;
+  }
+  img.loader{
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    right: 31px;
+    top: 3px;
+  }
 
   input[disabled="disabled"], input[disabled="disabled"]:hover{
     background-color: #9a9a98;

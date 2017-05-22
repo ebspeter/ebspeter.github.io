@@ -12,8 +12,7 @@
 {% if variation == 'compact' %}
 <div style="height:100%; width:100%; background-color:#575c6a; padding:20px; border-radius:8px; box-shadow: 2px 2px 15px #97999e"> 
 {% endif %}
-<form accept-charset="UTF-8" action="{{ meta.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" enctype="multipart/form-data" 
-  id="hsForm_{{ location }}" method="POST" data-form-name="Instapage">
+<form accept-charset="UTF-8" action="{{ meta.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" enctype="multipart/form-data" method="POST" data-form-name="Instapage">
 
   <div class="input-container">
     <input type="text" id="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}" data-msg="{{ copy.firstname.messages.required }}"/>
@@ -49,7 +48,12 @@
   <input type="hidden" name="utm_id" value="[utm_id]">
   <input type="hidden" name="timezonediff" value="{{ meta.timezone }}">
   <input type="hidden" name="js" value="">
-  <input type="submit" name="formSubmit" value="{{ meta.submit-text }}">
+  <div class="submit-container">
+    <input type="submit" name="formSubmit" value="{{ meta.submit-text }}">
+      <img src="/wp-content/themes/ebs-v2/images/min/ajax-loader.gif" class="loader" style="display: none;">
+    </input>
+  </div>
+
 </form>
 {% if variation == 'compact' %}
 </div> 
