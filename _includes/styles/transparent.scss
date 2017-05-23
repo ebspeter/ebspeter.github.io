@@ -16,74 +16,67 @@
     outline: none;
   }
 
-
-  
   /* Form styles */
   $error-color: red;
   $text-color: #eee;
-  
+  $success-color: #2cc16f;
+
+  /* Centering icons vertically */  
+  $inputHeight: 44px;
+  $inputFaSize: 20px;
+  $submitFaSize: 20px;
+
+  /* Placeholder color on invalid */
   input.error{color: $error-color;}
   .error::-webkit-input-placeholder { color: $error-color; }
   .error:-moz-placeholder { color: $error-color; }
   .error::-moz-placeholder { color: $error-color; }
   .error:-ms-input-placeholder { color: $error-color; }
 
-
-  @-webkit-keyframes autofill-error {
-      to {
-          background-color: #fff;
-          background-image: url({{ site_url }}/wp-content/themes/ebs-v2/images/min/invalid.png);
-      }
+  /* Remove yellow background on chrome after autofill */
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
   }
-
-  @-webkit-keyframes autofill-valid {
-      to {
-          background-color: #fff;
-          background-image: url({{ site_url }}/wp-content/themes/ebs-v2/images/min/valid.png);
-      }
-  }
-
-  input.error:-webkit-autofill {
-      -webkit-animation-name: autofill-error;
-      -webkit-animation-fill-mode: both;
-  }
-
-  input.valid:-webkit-autofill {
-      -webkit-animation-name: autofill-valid;
-      -webkit-animation-fill-mode: both;
-  }
-
 
   .input-container{
     height: 70px;
     text-align: left;
-  }
-
-  input[type="text"], input[type="email"], input[type="tel"], div.intl-tel-input.allow-dropdown {
-    height: 44px;
-    line-height: 44px;
-    box-sizing: border-box;
-    padding: 0 10px;
-    margin: 0;
-    background: #eee;
-    background-repeat:  no-repeat;
-    background-position: right 8px center;
-    border: 1px solid #d2d2d2;
-    border-radius:5px;
-    font-size: 14px;
-    font-weight: 300;
-    font-family: "Lato", sans serif;
-    width: 100%;
-    &.error{
-      background-image: url({{ site_url }}/wp-content/themes/ebs-v2/images/min/invalid.png);
+    position: relative;
+    i{
+      position: absolute;
+      z-index: 1;
+      font-size: $inputFaSize;
+      top: ($inputHeight - $inputFaSize) / 2;
+      right: ($inputHeight - $submitFaSize) / 2;
+      display: none;
     }
-    &.valid{
-      background-image: url({{ site_url }}/wp-content/themes/ebs-v2/images/min/valid.png);
+    i.valid{
+      color: $success-color;
+      display: inline-block;
     }
-  }
-
-  label.error{
-    color: lighten($error-color, 10%);
+    i.error{
+      color: $error-color;
+      display: inline-block;
+    }
+    input[type="text"], input[type="email"], input[type="tel"], div.intl-tel-input.allow-dropdown {
+      height: $inputHeight;
+      line-height: $inputHeight;
+      box-sizing: border-box;
+      padding: 0 10px;
+      margin: 0;
+      background: #eee;
+      background-repeat:  no-repeat;
+      background-position: right 8px center;
+      border: 1px solid #d2d2d2;
+      border-radius:5px;
+      font-size: 14px;
+      font-weight: 300;
+      font-family: "Lato", sans serif;
+      width: 100%;
+    }
+    label.error{
+      color: lighten($error-color, 10%);
+    }
   }
 
   p.phone-help{
@@ -110,48 +103,48 @@
       .flag-container{
         border-right:1px solid #b4b4b4;
         padding: 10px;
-
       }
     }
   }
 
-  input[type="submit"]{
-    -webkit-appearance: none;
-    background-color: #2cc16f;
-    color: #ffffff;
-    left: 0px;
-    width: 250px;
-    height: 44px;
-    font-size: 15px;
-    font-weight: 400;
-    font-family: "Lato", sans serif;
-    line-height: 44px;
-    box-sizing: border-box;
-    border-radius: 22px;
-    &:hover{
-      background-color: #2aba6b;
-      border-radius: 22px;
-      -webkit-appearance: none;
-    }
-  }
   .submit-container{
     position: relative;
-  }
-  img.loader{
-    width: 34px;
-    height: 34px;
-    position: absolute;
-    right: 31px;
-    top: 3px;
+    width: 250px;
+    height: $inputHeight;
+    button[type="submit"]{
+      -webkit-appearance: none;
+      background-color: #2cc16f;
+      color: #ffffff;
+      left: 0px;
+      height: $inputHeight;
+      width: 100%;
+      font-size: 15px;
+      font-weight: 400;
+      font-family: "Lato", sans serif;
+      line-height: $inputHeight;
+      box-sizing: border-box;
+      border-radius: $inputHeight / 2;
+      &:hover{
+        background-color: #2aba6b;
+        border-radius: $inputHeight / 2;
+        -webkit-appearance: none;
+      }
+    }
+    i{
+      position: absolute;
+      right: ($inputHeight - $submitFaSize) / 2;
+      font-size: $submitFaSize;
+      top: ($inputHeight - $submitFaSize) / 2;
+    }
   }
 
-  input[disabled="disabled"], input[disabled="disabled"]:hover{
+  button[disabled="disabled"], button[disabled="disabled"]:hover{
     background-color: #9a9a98;
     cursor: not-allowed;
   }
 
   @media only screen and (max-width: 640px){
-    input[type="submit"]{
+    button[type="submit"]{
       -webkit-appearance: none;
       width: 100%;
     }

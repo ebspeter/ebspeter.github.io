@@ -9,8 +9,6 @@
 {% endif %}
 
 $(document).ready(function(){
-  console.log('v3.js');
-  /*Forms*/
   $('.itl-phone').intlTelInput({
     autoPlaceholder: true,
     preferredCountries: ["au","be","ch","de","dk","es","fi","fr","gb","ie","it","nl","no","se","us","pl","pt","za"],
@@ -25,10 +23,25 @@ $(document).ready(function(){
   });
 
   /*Keep watching the inputs for change (browser autofill fix)*/
+  form_top = {};
   setInterval(function() {
-    $('input').each(function() {
-      var elem = $(this);
-      if (elem.val()) elem.change();
+    $('#form_top input:visible').each(function() {
+      var $elem = $(this);
+      if ($elem.val() != form_top[$elem[0].name]){
+        form_top[$elem[0].name] = $elem.val();
+        $elem.change();
+      }
+    })
+  }, 250);
+
+  form_bottom = {};
+  setInterval(function() {
+    $('#form_bottom input:visible').each(function() {
+      var $elem = $(this);
+      if ($elem.val() != form_top[$elem[0].name]){
+        form_bottom[$elem[0].name] = $elem.val();
+        $elem.change();
+      }
     })
   }, 250);
 
@@ -64,6 +77,12 @@ $(document).ready(function(){
     var $this = this;
     $(this).validate({
       ignore: ":hidden",
+      highlight: function(element) {
+        $(element).closest('.input-container').find('i').addClass("fa-times-circle-o error").removeClass('fa-check-circle-o valid');
+      },
+      unhighlight: function(element) {
+        $(element).closest('.input-container').find('i').addClass("fa-check-circle-o valid").removeClass('fa-times-circle-o error');
+      },
       rules: {
         firstname: {
           required: true,
@@ -109,7 +128,7 @@ $(document).ready(function(){
       },
       submitHandler: function(form) {
         $(form).find('.loader').show();
-        $(form).find('input[type="submit"]').val('Please wait..');
+        $(form).find('button[type="submit"]').html('Please wait.. <i class="fa fa-spinner fa-pulse"></i>');
         $(form).find('.itlPhoneFull').val( $(form).find('.itl-phone').intlTelInput("getNumber") );
         var fields = {
           firstname: 		'First name',

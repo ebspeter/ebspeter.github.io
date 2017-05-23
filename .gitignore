@@ -4,3 +4,8 @@ _site
 /node_modules
 yarn.lock
 flightplan.js
+
+_config_dev.yml
+_local
+/_includes/local.html
+local.html

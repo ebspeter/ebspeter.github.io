@@ -10,23 +10,23 @@
   {% assign copy = site.data.instapage[market].copy %}
 {% endif %}
 
-{% if variation == 'compact' %}
-<div style="height:100%; width:100%; background-color:#575c6a; padding:20px; border-radius:8px; box-shadow: 2px 2px 15px #97999e"> 
-{% endif %}
-
-<form accept-charset="UTF-8" action="{{ site_url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" enctype="multipart/form-data" method="POST" data-form-name="Instapage">
+<form id="form_{{ location }}" accept-charset="UTF-8" action="{{ site_url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" enctype="multipart/form-data" method="POST" data-form-name="Instapage">
 
   <div class="input-container">
-    <input type="text" id="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}" data-msg="{{ copy.firstname.messages.required }}"/>
+    <i class="fa"></i>
+    <input type="text" id="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}" 
+      data-msg="{{ copy.firstname.messages.required }}" tabindex="1">
   </div>
 
   <div class="input-container">
-    <input type="text" id="lastname" name="lastname" placeholder="{{ copy.lastname.placeholder }}" data-msg="{{ copy.lastname.messages.required }}"/>
+    <i class="fa"></i>
+    <input type="text" id="lastname" name="lastname" placeholder="{{ copy.lastname.placeholder }}" data-msg="{{ copy.lastname.messages.required }}" tabindex="2"/>
     <label for="lastname" generated="true" class="error"></label>
   </div>
 
   <div class="input-container">
-    <input type="email" type="email" id="email" name="email" placeholder="{{ copy.email.placeholder }}"
+    <i class="fa"></i>
+    <input type="email" type="email" id="email" name="email" placeholder="{{ copy.email.placeholder }}" tabindex="3"
       data-msg-required="{{ copy.email.messages.required }}"
       data-msg-format="{{ copy.email.messages.format }}"
       data-msg-domain="{{ copy.email.messages.domain }}" />
@@ -35,7 +35,8 @@
   <p class="phone-help">{{ copy.phone.help }}</p>
 
   <div class="input-container">
-    <input type="tel" name="itl-phone" id="itl-phone" class="itl-phone"
+    <i class="fa"></i>
+    <input type="tel" name="itl-phone" id="itl-phone" class="itl-phone" tabindex="4"
       data-msg-required="{{ copy.phone.messages.required }}"
       data-msg-valid="{{ copy.phone.messages.valid }}" /> 
     <label for="itl-phone" generated="true" class="error"></label>
@@ -51,13 +52,9 @@
   <input type="hidden" name="timezonediff" value="{{ meta.timezone }}">
   <input type="hidden" name="js" value="">
   <input type="hidden" name="itlPhoneFull" class="itlPhoneFull">
-  <div class="submit-container">
-    <input type="submit" name="formSubmit" value="{{ meta.submit-text }}">
-      <img src="{{ site_url }}/wp-content/themes/ebs-v2/images/min/ajax-loader.gif" class="loader" style="display: none;">
-    </input>
-  </div>
 
+  <div class="submit-container">
+    <button type="submit" name="formSubmit" value="{{ meta.submit-text }}" tabindex="5"
+      >{{ meta.submit-text }}</button>
+  </div>
 </form>
-{% if variation == 'compact' %}
-</div> 
-{% endif %}

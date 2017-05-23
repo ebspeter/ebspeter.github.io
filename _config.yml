@@ -27,9 +27,9 @@ theme: minima
 exclude: [node_modules]
 
 collections:
-#  instapage_forms:
-#    output: true
-#    permalink: /:collection/:path
+  instapage_forms:
+    output: true
+    permalink: /:collection/:path
   v2:
     output: true
     permalink: /:collection/:path
