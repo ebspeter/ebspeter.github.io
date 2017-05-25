@@ -24,7 +24,12 @@ github_username:  ebspeter
 # Build settings
 markdown: kramdown
 theme: minima
-exclude: [node_modules]
+exclude: 
+  - node_modules
+  - Gemfile
+  - yarn.lock
+  - package.json
+  - flightplan.*
 
 collections:
   instapage_forms:

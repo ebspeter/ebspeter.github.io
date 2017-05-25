@@ -9,6 +9,12 @@
 {% endif %}
 
 $(document).ready(function(){
+
+  /* Initialise WistiaTracker if wistia embed exist */
+	if( $('iframe[name="wistia_embed"]').length || $('div.wistia_embed').length){
+		WistiaTracker.init(true);
+	};
+
   $('.itl-phone').intlTelInput({
     autoPlaceholder: true,
     preferredCountries: ["au","be","ch","de","dk","es","fi","fr","gb","ie","it","nl","no","se","us","pl","pt","za"],

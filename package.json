@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "set JEKYLL_ENV=production && jekyll build --config _config_dev.yml --incremental --watch"
+    "dev": "set JEKYLL_ENV=production && jekyll build --config _config_dev.yml --watch",
+    "serve-dev": "set JEKYLL_ENV=production && jekyll serve --config _config_dev.yml"
   },
   "repository": {
     "type": "git",
