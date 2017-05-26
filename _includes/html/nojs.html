@@ -14,15 +14,15 @@
 {% capture styles %}{% include styles/nojs.scss %}{% endcapture %}
 {% endcapture %}  <style type="text/css">{{ styles | scssify | strip_newlines }}</style>
     <form accept-charset="UTF-8" action="{{ meta.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" method="POST" class="nojs">
-      <input type="text" class="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}"/>
-      <input type="text" class="lastname" name="lastname" placeholder="{{ copy.lastname.placeholder }}"/>
-      <input type="email" class="email" name="email" placeholder="{{ copy.email.placeholder }}"/>
+      <input type="text" class="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}" autocomplete="given-name" />
+      <input type="text" class="lastname" name="lastname" placeholder="{{ copy.lastname.placeholder }}" autocomplete="family-name"/>
+      <input type="email" class="email" name="email" placeholder="{{ copy.email.placeholder }}" autocomplete="email"/>
       <fieldset class="form-columns-2">
         <div class="form-field">
-          <input type="text" class="countrycode" name="countrycode" placeholder="" value="{{ meta.countrycode }}">
+          <input type="text" class="countrycode" name="countrycode" placeholder="" value="{{ meta.countrycode }}" autocomplete="tel-country-code">
         </div>
         <div class="form-field last">
-          <input type="tel" class="phone" name="phone" placeholder="{{ copy.phone.placeholder }}">
+          <input type="tel" class="phone" name="phone" placeholder="{{ copy.phone.placeholder }}" autocomplete="tel-national">
         </div>
       </fieldset>
       <input type="hidden" name="option_market" value="{{ meta.market }}">
