@@ -105,10 +105,14 @@
         border-right:1px solid #b4b4b4;
         padding: 10px;
       }
-      .iti-container{
-        z-index: 12000000;
-      }
     }
+  }
+  
+  .iti-mobile .intl-tel-input.iti-container {
+    z-index: 12000000;
+  }
+  .iti-flag {
+    background-image: url("{{ site_url }}/wp-content/themes/ebs-v2/images/min/flags.png") !important;
   }
 
   .submit-container{
@@ -153,13 +157,6 @@
       -webkit-appearance: none;
       width: 100%;
     }
-  }
-
-  .iti-mobile .intl-tel-input.iti-container {
-    z-index: 9999;
-  }
-  .iti-flag {
-    background-image: url("{{ site_url }}/wp-content/themes/ebs-v2/images/min/flags.png") !important;
   }
 
   @media only screen and (-webkit-min-device-pixel-ratio: 2),
