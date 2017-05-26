@@ -52,7 +52,8 @@ $(document).ready(function(){
   }, 250);
 
   $('input').change(function(){
-    if( $(this).hasClass('error') || $(this).hasClass('valid')){
+    var $validationElement = $(this).prev();
+    if( $validationElement.hasClass('error') || $validationElement.hasClass('valid')){
       updatePhoneContainer( $(this) );
     };
   });
