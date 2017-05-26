@@ -28,6 +28,8 @@ $(document).ready(function(){
     initialCountry: "auto",
   });
 
+  $('.itl-phone').attr('autocomplete', 'tel');
+
   /*Keep watching the inputs for change (browser autofill fix)*/
   form_top = {};
   setInterval(function() {
@@ -82,14 +84,18 @@ $(document).ready(function(){
 
   $('form').each(function(){
     var $this = this;
+    var validIcon = 'fa-check-circle-o';
+    var errorIcon = 'fa-times-circle-o';
+    function toggleValid(valid, $element){
+      $container = $($element).closest('.input-container');
+      var iconClasses = 'fa ' + (valid ? validIcon + ' valid' : errorIcon + ' error');
+      $container.find('i').attr('class','').addClass( iconClasses );
+      $element.addClass( valid ? 'valid' : 'error' ).removeClass( !valid ? 'valid' : 'error' );
+    };
     $(this).validate({
       ignore: ":hidden",
-      highlight: function(element) {
-        $(element).closest('.input-container').find('i').addClass("fa-times-circle-o error").removeClass('fa-check-circle-o valid');
-      },
-      unhighlight: function(element) {
-        $(element).closest('.input-container').find('i').addClass("fa-check-circle-o valid").removeClass('fa-times-circle-o error');
-      },
+      highlight: function(element){toggleValid(false, $(element))},
+      unhighlight: function(element){toggleValid(true, $(element))},
       rules: {
         firstname: {
           required: true,

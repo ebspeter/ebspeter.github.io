@@ -20,6 +20,8 @@
   $error-color: red;
   $text-color: #eee;
   $success-color: #2cc16f;
+  $background-color: #eee;
+  $border-color: #d2d2d2;
 
   /* Centering icons vertically */  
   $inputHeight: 44px;
@@ -35,7 +37,7 @@
 
   /* Remove yellow background on chrome after autofill */
   input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px white inset;
+    -webkit-box-shadow: 0 0 0 30px $background-color inset;
   }
 
   .input-container{
@@ -64,15 +66,18 @@
       box-sizing: border-box;
       padding: 0 10px;
       margin: 0;
-      background: #eee;
+      background: $background-color;
       background-repeat:  no-repeat;
       background-position: right 8px center;
-      border: 1px solid #d2d2d2;
+      border: 1px solid $border-color;
       border-radius:5px;
       font-size: 14px;
       font-weight: 300;
       font-family: "Lato", sans serif;
       width: 100%;
+      &.error{
+        border-color: $error-color;
+      }
     }
     label.error{
       color: lighten($error-color, 10%);
@@ -89,7 +94,8 @@
     &.allow-dropdown{
       input[type=tel].itl-phone{
         background: transparent;
-        padding-left:70px;
+        height: $inputHeight - 2;
+        padding-left: 70px;
         padding-right: 0;
         border: none;
       }
@@ -104,10 +110,10 @@
       .flag-container{
         border-right:1px solid #b4b4b4;
         padding: 10px;
+        z-index: 10;
       }
     }
   }
-  
   .iti-mobile .intl-tel-input.iti-container {
     z-index: 12000000;
   }

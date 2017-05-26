@@ -15,12 +15,13 @@
   <div class="input-container">
     <i class="fa"></i>
     <input type="text" id="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}" 
-      data-msg="{{ copy.firstname.messages.required }}" tabindex="1">
+      data-msg="{{ copy.firstname.messages.required }}" tabindex="1" autocomplete="given-name">
   </div>
 
   <div class="input-container">
     <i class="fa"></i>
-    <input type="text" id="lastname" name="lastname" placeholder="{{ copy.lastname.placeholder }}" data-msg="{{ copy.lastname.messages.required }}" tabindex="2"/>
+    <input type="text" id="lastname" name="lastname" placeholder="{{ copy.lastname.placeholder }}" 
+      data-msg="{{ copy.lastname.messages.required }}" tabindex="2" autocomplete="family-name"/>
     <label for="lastname" generated="true" class="error"></label>
   </div>
 
@@ -29,7 +30,8 @@
     <input type="email" type="email" id="email" name="email" placeholder="{{ copy.email.placeholder }}" tabindex="3"
       data-msg-required="{{ copy.email.messages.required }}"
       data-msg-format="{{ copy.email.messages.format }}"
-      data-msg-domain="{{ copy.email.messages.domain }}" />
+      data-msg-domain="{{ copy.email.messages.domain }}" 
+      autocomplete="email" />
   </div>
 
   <div class="input-container">
