@@ -19,7 +19,7 @@ $(document).ready(function(){
     autoPlaceholder: true,
     preferredCountries: ["au","be","ch","de","dk","es","fi","fr","gb","ie","it","nl","no","se","us","pl","pt","za"],
     geoIpLookup: function(callback) {
-      $.post("{{ site_url }}/wp-content/themes/ebs-v2/check.php", {ip: true}).always(function(resp) {
+      $.post("/wp-content/themes/ebs-v2/check.php", {ip: true}).always(function(resp) {
         var countryCode = (resp) ? resp : "{{ country }}";
         callback(countryCode);
       });
@@ -84,8 +84,8 @@ $(document).ready(function(){
 
   $('form').each(function(){
     var $this = this;
-    var validIcon = 'fa-check-circle-o';
-    var errorIcon = 'fa-times-circle-o';
+    var validIcon = 'fa-check';
+    var errorIcon = 'fa-times';
     function toggleValid(valid, $element){
       $container = $($element).closest('.input-container');
       var iconClasses = 'fa ' + (valid ? validIcon + ' valid' : errorIcon + ' error');
@@ -108,7 +108,7 @@ $(document).ready(function(){
           email: true,
           RFC2822Email: true,
           remote: {
-            url: "{{ site_url }}/wp-content/themes/ebs-v2/check.php",
+            url: "/wp-content/themes/ebs-v2/check.php",
             type: "post",
             data: {
               "email-domain": function() {
@@ -179,7 +179,7 @@ $(document).ready(function(){
             };
           });
           _paq.push(['trackEvent', 'Form', 'Instapage', 'Invalid']);
-          $.post( "{{ site_url }}/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) } );
+          $.post( "/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) } );
         }
       },
     });

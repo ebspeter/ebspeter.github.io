@@ -50,11 +50,9 @@
       {% if template != 'instapage_forms' and variation == current_variation and market == current_market and location != prev_location and location != 'index.html' %}
         <div style="width: 90%; margin-left: 5%";>
           <h2 style="margin-top: 30px; margin-bottom: 10px;">Embed code for {{ location }}</h2>
-          <textarea rows="30" style="white-space:nowrap; overflow:scroll; width: 100%;">
+          <textarea rows="30" style="white-space:nowrap; overflow:scroll; width: 100%;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
 <div id="form-{{ location }}" style="height:100%; width:100%;">
-  <noscript>
-  {% include html/nojs.html %}
-  </noscript>
+{% include html/nojs.html %}
 </div>
 <script src="{{ repsitory }}/{{ template }}/{{ variation }}/{{ market }}/{{ location }}/"></script>
           </textarea>
