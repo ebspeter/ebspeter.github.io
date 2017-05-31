@@ -1,0 +1,60 @@
+{% assign path = page.path | split:"/" %}
+{% assign variation = path[1] %}
+{% assign market = path[2] %}
+{% assign location = path[3] %}
+{% assign meta = site.data.instapage[market].meta %}
+{% if site.data.instapage[market].copy.size == 2 %}
+  {% assign lang = site.data.instapage[market].copy %}
+  {% assign copy = site.data.instapage[lang].copy %}
+{% else %}
+  {% assign copy = site.data.instapage[market].copy %}
+{% endif %}
+
+<form id="form_{{ location }}" accept-charset="UTF-8" action="{{ site_url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" enctype="multipart/form-data" method="POST" data-form-name="Instapage">
+
+  <div class="input-container">
+    <i class="fa"></i>
+    <input type="text" id="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}" 
+      data-msg="{{ copy.firstname.messages.required }}" tabindex="1" autocomplete="given-name">
+  </div>
+
+  <div class="input-container">
+    <i class="fa"></i>
+    <input type="text" id="lastname" name="lastname" placeholder="{{ copy.lastname.placeholder }}" 
+      data-msg="{{ copy.lastname.messages.required }}" tabindex="2" autocomplete="family-name"/>
+    <label for="lastname" generated="true" class="error"></label>
+  </div>
+
+  <div class="input-container">
+    <i class="fa"></i>
+    <input type="email" type="email" id="email" name="email" placeholder="{{ copy.email.placeholder }}" tabindex="3"
+      data-msg-required="{{ copy.email.messages.required }}"
+      data-msg-format="{{ copy.email.messages.format }}"
+      data-msg-domain="{{ copy.email.messages.domain }}" 
+      autocomplete="email" />
+  </div>
+
+  <div class="input-container">
+    <i class="fa"></i>
+    <input type="tel" name="itl-phone" id="itl-phone" class="itl-phone" tabindex="4"
+      data-msg-required="{{ copy.phone.messages.required }}"
+      data-msg-valid="{{ copy.phone.messages.valid }}" /> 
+    <label for="itl-phone" generated="true" class="error"></label>
+  </div>
+
+  <input type="hidden" name="option_market" value="{{ meta.market }}">
+  <input type="hidden" name="title" value="{{ meta.title }}">
+  <input type="hidden" name="utm_source" value="[utm_source]">
+  <input type="hidden" name="utm_medium" value="[utm_medium]">
+  <input type="hidden" name="utm_campaign" value="[utm_campaign]">
+  <input type="hidden" name="utm_content" value="[utm_content]">
+  <input type="hidden" name="utm_id" value="[utm_id]">
+  <input type="hidden" name="timezonediff" value="{{ meta.timezone }}">
+  <input type="hidden" name="js" value="">
+  <input type="hidden" name="itlPhoneFull" class="itlPhoneFull">
+
+  <div class="submit-container">
+    <button type="submit" name="formSubmit" value="{{ meta.submit-text }}" tabindex="5"
+      >{{ meta.submit-text }}</button>
+  </div>
+</form>

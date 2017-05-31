@@ -1,0 +1,195 @@
+  /* reset */
+  legend {
+    padding: 0;
+    display: table;
+  }
+  fieldset {
+    border: 0;
+    padding: 0.01em 0 0 0;
+    margin: 0;
+    min-width: 0;
+  }
+  body:not(:-moz-handler-blocked) fieldset {
+    display: table-cell;
+  }
+  textarea:focus, input:focus, div:focus{
+    outline: none;
+  }
+
+  /* Form styles */
+  $error-color: #fb3535;
+  $text-color: #fff;
+  $success-color: #2cc16f;
+  $background-color: #fff;
+  $border-color: #fff;
+
+  /* Centering icons vertically */  
+  $inputHeight: 48px;
+  $inputFaSize: 22px;
+  $submitFaSize: 20px;
+
+  /* Placeholder color on invalid */
+  input.error{color: $error-color;}
+  .error::-webkit-input-placeholder { color: $error-color; }
+  .error:-moz-placeholder { color: $error-color; }
+  .error::-moz-placeholder { color: $error-color; }
+  .error:-ms-input-placeholder { color: $error-color; }
+
+  /* Remove yellow background on chrome after autofill */
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px $background-color inset;
+  }
+
+  .input-container{
+    height: 70px;
+    text-align: left;
+    position: relative;
+    margin-bottom:10px;
+    i{
+      position: absolute;
+      z-index: 1;
+      font-size: $inputFaSize;
+      top: ($inputHeight - $inputFaSize) / 2;
+      right: ($inputHeight - $submitFaSize) / 2;
+      display: none;
+    }
+    i.valid{
+      color: $success-color;
+      display: inline-block;
+    }
+    i.error{
+      color: $error-color;
+      display: none;
+    }
+    input[type="text"], input[type="email"], input[type="tel"], div.intl-tel-input.allow-dropdown {
+      height: $inputHeight;
+      line-height: $inputHeight;
+      box-sizing: border-box;
+      padding: 0 16px;
+      margin: 0;
+      background: $background-color;
+      background-repeat:  no-repeat;
+      background-position: right 8px center;
+      border: 2.25px solid $border-color;
+      border-radius:5px;
+      font-size: 15px;
+      font-weight: 400;
+      font-family: "Lato", sans serif;
+      width: 100%;
+      color:#88a3b4;
+      &::placeholder{
+        color:#b2c3ce;
+      }
+      &.error{
+        border-color: $error-color;
+      }
+    }
+    label.error{
+      display:block;
+      color: lighten($error-color, 10%);
+      padding-left: 20px;
+      margin-top:4px;
+    }
+  }
+
+  p.phone-help{
+    color: $text-color;
+    margin-bottom: 5px;
+  }
+
+  .intl-tel-input{
+    &.allow-dropdown{
+      input[type=tel].itl-phone{
+        background: transparent;
+        height: $inputHeight - 2;
+        padding-left: 70px;
+        padding-right: 0;
+        border: none;
+        vertical-align:top;
+      }
+      &.separate-dial-code{
+        .selected-flag{
+          background: none;
+        }
+        .flag-container{
+          padding: 0;
+        }
+      }
+      .flag-container{
+        border-right:1px solid #cfdbe0;
+        padding: 10px;
+        z-index: 10;
+      }
+    }
+  }
+  .iti-mobile .intl-tel-input.iti-container {
+    z-index: 12000000;
+  }
+  .iti-flag {
+    background-image: url("/wp-content/themes/ebs-v2/images/min/flags.png") !important;
+  }
+
+  .submit-container{
+    position: relative;
+    width: 250px;
+    height: $inputHeight;
+    margin: 0 auto;
+    button[type="submit"]{
+      -webkit-appearance: none;
+      background-color: #2cc16f;
+      color: #ffffff;
+      left: 0px;
+      height: $inputHeight;
+      width: 100%;
+      font-size: 15px;
+      font-weight: 400;
+      font-family: "Lato", sans serif;
+      line-height: $inputHeight;
+      box-sizing: border-box;
+      border-radius: $inputHeight / 2;
+      &:hover{
+        background-color: #2aba6b;
+        border-radius: $inputHeight / 2;
+        -webkit-appearance: none;
+      }
+    }
+    i{
+      position: absolute;
+      right: ($inputHeight - $submitFaSize) / 2;
+      font-size: $submitFaSize;
+      top: ($inputHeight - $submitFaSize) / 2;
+    }
+  }
+
+  button[disabled="disabled"], button[disabled="disabled"]:hover{
+    background-color: #9a9a98;
+    cursor: not-allowed;
+  }
+
+  @media only screen and (max-width: 640px){
+    button[type="submit"]{
+      -webkit-appearance: none;
+      width: 100%;
+    }
+  }
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2 / 1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+    .iti-flag {
+      background-image: url("/wp-content/themes/ebs-v2/images/min/flags@2x.png") !important;
+    }
+  }
+
+  @media screen and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio:2) { 
+    select,
+    textarea,
+    input,
+    input:focus,
+    input:hover {
+      font-size: 16px !important;
+    }
+  }

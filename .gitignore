@@ -2,5 +2,11 @@ _site
 .sass-cache
 .jekyll-metadata
 /node_modules
-flightplan.js
+
 yarn.lock
+flightplan.js
+
+_config_dev.yml
+_local
+/_includes/local.html
+local.html

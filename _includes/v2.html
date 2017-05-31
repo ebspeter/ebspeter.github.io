@@ -1,0 +1,41 @@
+{% assign path = page.path | split:"/" %}
+{% assign variation = path[1] %}
+{% assign market = path[2] %}
+{% assign location = path[3] %}
+{% assign meta = site.data.instapage[market].meta %}
+
+{% if jekyll.environment != "production" %}
+  {% if meta.url != 'http://www.barschool.net' %}
+    {% assign site_url = meta.url | replace:'.','-' | append: '.barschool.staging.wpengine.com' %}
+  {% else %}
+    {% assign site_url = 'http://barschool.staging.wpengine.com' %}
+  {% endif %}
+{% else %}
+  {% assign site_url = meta.url %}
+{% endif %}
+
+{% capture html %}{% include html/{{meta.htmlVersion}}.html %}{% endcapture %}
+{% capture styles %}{% include styles/{{variation}}.scss %}{% endcapture %}
+
+{% if location == 'top' %}
+  (function(){
+    var styles = '<style type="text/css">{{ styles | scssify | strip_newlines }}</style>';
+    var html = '{{ html | strip_newlines }}';
+    var parent = document.getElementById('form-top');
+    parent.innerHTML = styles + html;
+  })();
+  {% include js/{{meta.jsVersion}}.js %}
+  {% include piwik.js %}
+{% else %}
+  (function(){
+    var html = '{{ html | strip_newlines }}';
+    var parent = document.getElementById('form-bottom');
+    parent.innerHTML = html;
+  })();
+{% endif %}
+
+
+
+
+
+

@@ -13,21 +13,24 @@ en:
       messages:
         required: Please enter your email
         format: Please enter a valid email
-        domain: Email domain don't exist
+        domain: Email domain don‘t exist
     phone:
       placeholder: Phone Number
       messages:
-        required: Please enter your phonenumber
-        valid: Please enter a valid phonenumber
+        required: Please enter your phone number
+        valid: Please enter a valid phone number
       help: Search the list by typing your country name, or enter your country code to select country
   meta:
     countrycode: "+44"
     hubspot-id: 33caee8b-be08-4595-9719-66d04178f3ce
     market: EN
+    countryAlpha2: GB
     url: http://www.barschool.net
     title: Free Brochure
     timezone: "+10:00"
     submit-text: Download Brochure
+    htmlVersion: v3
+    jsVersion: v3
 
 dk:
   copy:
@@ -59,6 +62,8 @@ dk:
     title: Gratis Broshyr
     timezone: "+01:00"
     submit-text: Download Nu!
+    htmlVersion: v3
+    jsVersion: v3
 
 sv:
   copy:
@@ -90,7 +95,9 @@ sv:
     title: Bartending Course at European Bartender School
     timezone: "+01:00"
     submit-text: Ladda ner din broschyr gratis
-
+    htmlVersion: v3
+    jsVersion: v3
+    
 'no':
   copy:
     firstname:
@@ -121,7 +128,9 @@ sv:
     title: Last ned en gratis brosjyre
     timezone: "+01:00"
     submit-text: Last ned nå!
-
+    htmlVersion: v3
+    jsVersion: v3
+    
 nl:
   copy:
     firstname:
@@ -152,7 +161,9 @@ nl:
     title: Download de brochure gratis
     timezone: "+01:00"
     submit-text: DOWNLOAD NU!
-
+    htmlVersion: v3
+    jsVersion: v3
+    
 de:
   copy:
     firstname:
@@ -183,7 +194,9 @@ de:
     title: Hole dir die gratis Brochüre
     timezone: "+01:00"
     submit-text: JETZT DOWNLOADEN
-
+    htmlVersion: v3
+    jsVersion: v3
+    
 fr:
   copy:
     firstname:
@@ -199,7 +212,7 @@ fr:
       messages:
         required: Indique ton adresse email STP
         format: Indique une adresse email valide STP
-        domain: L'adresse email indiquée n'existe pas
+        domain: L‘adresse email indiquée n‘existe pas
     phone:
       placeholder: Numéro de téléphone
       messages:
@@ -214,7 +227,9 @@ fr:
     title: Télécharge une brochure gratuitement
     timezone: "+01:00"
     submit-text: TÉLÉCHARGE MAINTENANT !
-
+    htmlVersion: v3
+    jsVersion: v3
+    
 es:
   copy:
     firstname:
@@ -245,7 +260,9 @@ es:
     title: Descarga gratis nuestro folleto
     timezone: "+01:00"
     submit-text: ¡DESCARGAR AHORA!
-
+    htmlVersion: v3
+    jsVersion: v3
+    
 it:
   copy:
     firstname:
@@ -261,7 +278,7 @@ it:
       messages:
         required: Per favore, inserisci la tua email
         format: Per favore, inserisci un indirizzo email valido
-        domain: L'indirizzo inserito è inesistente
+        domain: L‘indirizzo inserito è inesistente
     phone:
       placeholder: Numero di telefono
       messages:
@@ -276,7 +293,9 @@ it:
     title: Scarica la brochure gratuita
     timezone: "+01:00"
     submit-text: SCARICALA SUBITO!
-
+    htmlVersion: v3
+    jsVersion: v3
+    
 fi:
   copy:
     firstname:
@@ -307,7 +326,9 @@ fi:
     title: Lataa esite ilmaiseksi
     timezone: "+01:00"
     submit-text: LATAA NYT!
-
+    htmlVersion: v3
+    jsVersion: v3
+    
 au:
   copy: en
   meta:
@@ -318,6 +339,9 @@ au:
     title: Bartending Course at European Bartender School
     timezone: "+10:00"
     submit-text: Download Brochure
+    htmlVersion: v3
+    jsVersion: v3
+    
 ie:
   copy: en
   meta:
@@ -328,6 +352,9 @@ ie:
     title: Get a free brochure
     timezone: "+00:00"
     submit-text: Download Brochure
+    htmlVersion: v3
+    jsVersion: v3
+    
 us:
   copy: en
   meta:
@@ -338,6 +365,9 @@ us:
     title: Get a free brochure
     timezone: "-05:00"
     submit-text: Download Brochure
+    htmlVersion: v3
+    jsVersion: v3
+    
 in:
   copy: en
   meta:
@@ -348,7 +378,9 @@ in:
     title: Get a free brochure
     timezone: "+05:00"
     submit-text: Download Brochure
-
+    htmlVersion: v3
+    jsVersion: v3
+    
 staging:
   copy: en
   meta:
@@ -359,3 +391,6 @@ staging:
     title: Get a free brochure
     timezone: "+05:00"
     submit-text: Download Brochure
+    htmlVersion: v3
+    jsVersion: v3
+    

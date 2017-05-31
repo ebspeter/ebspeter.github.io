@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html>
-
   {% include head.html %}
-
   <body>
-
     {% include header.html %}
-
     <div class="page-content">
       <div class="wrapper">
         <div class="home">
           {% assign path = page.path | split:"/" %}
           {% assign current_variation = path[1] %}
+          {% assign template = path[0] | slice: 1, path[0].size %}
           {% assign prev_market = '' %}
-          <a href="/instapage_forms">&laquo; variations</a>
+          <a href="/{{ template }}">&laquo; variations</a>
           <h1 class="page-heading">{{ current_variation | upcase }} - markets</h1>
           <ul>
-            {% for page in site.instapage_forms %}
+            {% for page in site[template] %}
               {% assign path = page.path | split:"/" %}
               {% assign variation = path[1] %}
               {% assign market = path[2] %}
               {% if variation == current_variation and market != prev_market and market != 'index.html' %}
                 <li>
-                  <a href="/instapage_forms/{{ variation }}/{{ market }}">{{ market | capitalize }}</a>
+                  <a href="/{{ template }}/{{ variation }}/{{ market }}">{{ market | capitalize }}</a>
                 </li>
               {% endif %}
               {% assign prev_market = market %}
@@ -31,11 +28,8 @@
         </div>
       </div>
     </div>
-
     {% comment %}
     {% include footer.html %}
     {% endcomment %}
-
   </body>
-
 </html>

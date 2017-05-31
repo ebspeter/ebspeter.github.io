@@ -12,19 +12,20 @@
         <div class="home">
           {% assign path = page.path | split:"/" %}
           {% assign current_variation = path[1] %}
+          {% assign template = path[0] | slice: 1, path[0].size %}
           {% assign current_market = path[2] %}
           {% assign prev_location = '' %}
-          <a href="/instapage_forms">&laquo; Markets</a>
+          <a href="/{{ template }}">&laquo; Markets</a>
           <h1 class="page-heading">{{ current_market | upcase }} - Locations</h1>
           <ul>
-            {% for page in site.instapage_forms %}
+            {% for page in site[template] reversed %}
               {% assign path = page.path | split:"/" %}
               {% assign variation = path[1] %}
               {% assign market = path[2] %}
               {% assign location = path[3] %}
               {% if variation == current_variation and market == current_market and location != prev_location and location != 'index.html' %}
                 <li>
-                  <a href="/instapage_forms/{{ variation }}/{{ market }}/{{ location }}">{{ location | capitalize }}</a>
+                  <a href="/{{ template }}/{{ variation }}/{{ market }}/{{ location }}">{{ location | capitalize }}</a>
                 </li>
               {% endif %}
               {% assign prev_location = market %}
@@ -33,6 +34,32 @@
         </div>
       </div>
     </div>
+    {% for page in site[template] reversed %}
+      {% assign path = page.path | split:"/" %}
+      {% assign template = path[0] | slice: 1, path[0].size %}
+      {% assign variation = path[1] %}
+      {% assign market = path[2] %}
+      {% assign location = path[3] %}
+
+      {% if site.github.hostname == 'github.com' %}
+        {% assign repsitory = "http://forms.ebs.team" %}  
+      {% else %}
+        {% assign repsitory = "http://formstaging.ebs.team" %}
+      {% endif %}
+
+      {% if template != 'instapage_forms' and variation == current_variation and market == current_market and location != prev_location and location != 'index.html' %}
+        <div style="width: 90%; margin-left: 5%";>
+          <h2 style="margin-top: 30px; margin-bottom: 10px;">Embed code for {{ location }}</h2>
+          <textarea rows="30" style="white-space:nowrap; overflow:scroll; width: 100%;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+<div id="form-{{ location }}" style="height:100%; width:100%;">
+{% include html/nojs.html %}
+</div>
+<script src="{{ repsitory }}/{{ template }}/{{ variation }}/{{ market }}/{{ location }}/"></script>
+          </textarea>
+        </div>  
+      {% endif %}
+      {% assign prev_location = market %}
+    {% endfor %}
 
     {% comment %}
     {% include footer.html %}
