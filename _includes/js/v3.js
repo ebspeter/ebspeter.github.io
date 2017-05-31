@@ -95,10 +95,13 @@ $(document).ready(function(){
     var validIcon = 'fa-check';
     var errorIcon = 'fa-times';
     function toggleValid(valid, $element){
-      $container = $($element).closest('.input-container');
+      $container = $element.closest('.input-container');
+      var addClass = valid ? 'valid' : 'error';
+      var removeClass = !valid ? 'valid' : 'error'; 
       var iconClasses = 'fa ' + (valid ? validIcon + ' valid' : errorIcon + ' error');
       $container.find('i').attr('class','').addClass( iconClasses );
-      $element.addClass( valid ? 'valid' : 'error' ).removeClass( !valid ? 'valid' : 'error' );
+      $container.find('div.intl-tel-input').addClass( addClass ).removeClass( removeClass );
+      $element.addClass( addClass ).removeClass( removeClass );
     };
     $(this).validate({
       ignore: ":hidden",
