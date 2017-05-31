@@ -184,3 +184,7 @@ $(document).ready(function(){
     return result;
   });
 });
+
+window.addEventListener("pagehide", function(evt){
+  WistiaTracker.leave(true);
+}, false);

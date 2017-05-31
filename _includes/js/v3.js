@@ -53,6 +53,14 @@ $(document).ready(function(){
     })
   }, 250);
 
+  $('input').focus(function(){
+    /* Clear any custom variables from a preceeding invalid submit */
+    for(i=0; i < 6; i++){
+      _paq.push(['deleteCustomVariable', i, 'page']);
+    };    
+    _paq.push(['trackEvent', 'Form', 'Instapage', 'Focus ' + $(this).attr('name')]);
+  });
+
   $('input').change(function(){
     var $validationElement = $(this).prev();
     if( $validationElement.hasClass('error') || $validationElement.hasClass('valid')){
@@ -164,23 +172,21 @@ $(document).ready(function(){
         form.submit();
       },
       invalidHandler: function(event, validator) {
-        if ( $("#itl-phone").intlTelInput("getValidationError") == 0 && !$("#itl-phone").intlTelInput("isValidNumber") ) {
-          var $inputs = $(':input', $this);
-          var values = {};
-          var i = 1;
-          $inputs.each(function() {
-            if ( $(this).val() ){
-              /* switch on itl-phone here */
-              values[this.name] = $(this).val();
-            };
-            if ( $.inArray( $(this)[0].name ["firstname","lastname","email","itl-phone"] )) {
-              _paq.push(['setCustomVariable', i, $(this)[0].name, $(this)[0].value, "page"]);
-              i++
-            };
-          });
-          _paq.push(['trackEvent', 'Form', 'Instapage', 'Invalid']);
-          $.post( "/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) } );
-        }
+        var $inputs = $(':input', $this);
+        var values = {};
+        var i = 1;
+        $inputs.each(function() {
+          if ( $(this).val() ){
+            /* switch on itl-phone here */
+            values[this.name] = $(this).val();
+          };
+          if ( $.inArray( $(this)[0].name ["firstname","lastname","email","itl-phone"] )) {
+            _paq.push(['setCustomVariable', i, $(this)[0].name, $(this)[0].value, "page"]);
+            i++
+          };
+        });
+        _paq.push(['trackEvent', 'Form', 'Instapage', 'Invalid']);
+        $.post( "/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) } );
       },
     });
   });
