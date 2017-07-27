@@ -28,14 +28,16 @@ With some host file modifications it's possible to test and debug the form on lo
 
 To introduce new features, follow these steps: 
 1. Develop the new functionality on localhost (on separate branch)
-2. Merge to develop
-2. Deploy to staging and verify functionality with an instapage published on staging.barschool.net
-3. Check that tracking is working by inspecting the visitor log in trackstaging.ebs-platform.com
-4. Merge to master
-4. Verify the live page(s) are working as expected
-
-
-
-
-
-
+1. Push to origin
+1. Merge to develop
+1. Deploy to staging, `fly staging`
+1. Copy an instapage affected by the change (instapage)
+1. Move to Develop folder (instapage)
+1. Copy the top embed code from `formstaging.ebs.team/{version}/{variation}/{market}/`, ex: `http://formstaging.ebs.team/v2/transparent/nl/`
+1. Paste the embed code into the form
+1. Publish the page to wp staging, `[www-subsite-tld.barschool.]barschool.staging.wpengine.com/lp/test`
+1. Verify functionality, `[www-subsite-tld.barschool.]barschool.staging.wpengine.com/lp/test`. Tracking and Lead submit
+1. Check that tracking is working by inspecting the visitor log in trackstaging.ebs-platform.com
+1. Merge to master (this will also deploy the changes to production)
+1. Verify the live page(s), including at least one page with is un-affected by the change (if any), are working as expected. Tracking and Lead submit
+1. Monitor incoming leads volume during some time to catch any general issues. 
