@@ -5,7 +5,7 @@
 {% assign meta = site.data.instapage[market].meta %}
 
 {% if jekyll.environment != "production" %}
-  {% if meta.url != 'http://www.barschool.net' %}
+  {% if meta.url != '//www.barschool.net' %}
     {% assign site_url = meta.url | replace:'.','-' | append: '.barschool.staging.wpengine.com' %}
   {% else %}
     {% assign site_url = 'http://barschool.staging.wpengine.com' %}
