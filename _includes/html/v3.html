@@ -42,6 +42,14 @@
     <label for="itl-phone" generated="true" class="error"></label>
   </div>
 
+  <div class="input-container gdpr">
+    <input type="checkbox" class="checkbox gdpr" name="gdpr" tabindex="14" data-msg-required="{{ copy.privacy_consent.messages.required }}">
+    <div class="labels">
+      <label for="gdprFooter">{{ copy.privacy_consent.copy|raw }}</label>
+      <label id="gdpr-error" class="error" for="gdpr" style="display:none;"></label>
+    </div>
+  </div>
+
   <input type="hidden" name="option_market" value="{{ meta.market }}">
   <input type="hidden" name="title" value="{{ meta.title }}">
   <input type="hidden" name="utm_source" value="[utm_source]">

@@ -4,7 +4,7 @@ $(document).ready(function(){
     autoPlaceholder: true,
     preferredCountries: ["au","dk","fi","fr","de","in","ie","it","nl","no","es","se","gb","us","ar","be","br","cl","gr","mx","pl","pt","ro","za","ch","ve"],
     geoIpLookup: function(callback) {
-      $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+      $.get("//ipinfo.io", function() {}, "jsonp").always(function(resp) {
         var countryCode = (resp && resp.country) ? resp.country : "gb";
         callback(countryCode);
       });

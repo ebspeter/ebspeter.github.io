@@ -87,8 +87,30 @@
     label.error{
       display:block;
       color: lighten($error-color, 10%);
-      padding-left: 20px;
       margin-top:4px;
+    }
+    &.gdpr{
+      display: flex;
+      flex-direction: row;
+      margin-top: -10px;
+      height: 50px;
+      input{
+        margin-top: 5px;
+        margin-right: 10px;
+      }
+      .labels label{
+        font-size: 80%;
+        font-weight: normal;
+        line-height: 1.4;
+        margin-bottom: 0;
+        color: $text-color;
+        &.error{
+          color: lighten($error-color, 10%);
+        }
+        a{
+          color: lighten($text-color, 10%);
+        }
+      }
     }
   }
 

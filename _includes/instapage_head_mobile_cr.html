@@ -3,10 +3,10 @@
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
-<link rel="stylesheet" type="text/css" href="http://cdn.barschool.net/wp-content/themes/ebs-v2/css/intlTelInput.css">
-<script type="text/javascript" src="http://cdn.barschool.net/wp-content/themes/ebs-v2/js/vendor/intlTelInput.js"></script>
-<script type="text/javascript" src="http://cdn.barschool.net/wp-content/themes/ebs-v2/js/vendor/utils.js"></script>
-<script type="text/javascript" src="http://cdn.barschool.net/wp-content/themes/ebs-v2/js/tracking.js"></script>
+<link rel="stylesheet" type="text/css" href="//www.barschool.net/wp-content/themes/ebs-v2/css/intlTelInput.css">
+<script type="text/javascript" src="//www.barschool.net/wp-content/themes/ebs-v2/js/vendor/intlTelInput.js"></script>
+<script type="text/javascript" src="//www.barschool.net/wp-content/themes/ebs-v2/js/vendor/utils.js"></script>
+<script type="text/javascript" src="//www.barschool.net/wp-content/themes/ebs-v2/js/tracking.js"></script>
 
 {% include instapage_styles.html %}
 
@@ -21,7 +21,7 @@
       autoPlaceholder: true,
       preferredCountries: ["au","dk","fi","fr","de","in","ie","it","nl","no","es","se","gb","us","ar","be","br","cl","gr","mx","pl","pt","ro","za","ch","ve"],
       geoIpLookup: function(callback) {
-        $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+        $.get("//ipinfo.io", function() {}, "jsonp").always(function(resp) {
           var countryCode = (resp && resp.country) ? resp.country : "gb";
           callback(countryCode);
         });

@@ -4,7 +4,7 @@
 
 ### Production
 
-The production is served by github on `http://forms.ebs.team`. 
+Production is served on `http://forms.ebs.team` by github pages, production-transition is hosted on Web2 on `https://secforms.ebs.team`. 
 
 All live instapage landingpages are getting the form by a client side script in the form embed code. The scripts use the local domain, ex: www.barschool.net, for ajax calls and track.ebs-platform.com for tracking.js and tracking ajax calls to piwik.php.
 
@@ -41,3 +41,6 @@ To introduce new features, follow these steps:
 1. Merge to master (this will also deploy the changes to production)
 1. Verify the live page(s), including at least one page with is un-affected by the change (if any), are working as expected. Tracking and Lead submit
 1. Monitor incoming leads volume during some time to catch any general issues. 
+
+## Web2 Deploy
+`JEKYLL_ENV=production jekyll build --config _config-production.yml`
