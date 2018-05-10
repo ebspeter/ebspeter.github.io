@@ -78,6 +78,10 @@ $(document).ready(function(){
     };
   });
 
+  $('.checkbox').click(function(event){
+		$(this).valid();
+  });
+  
   function updatePhoneContainer($element){
     var valid = $element.valid();
     if( $element.hasClass('itl-phone')){
@@ -134,7 +138,10 @@ $(document).ready(function(){
         'itl-phone': {
           required: true,
           phone_valid: true,
-        }
+        },
+        gdpr: {
+          required: true,
+        },
       },
       messages: {
         firstname: getMsg('input[name="firstname"]', $this, 'data-msg'),
@@ -148,6 +155,9 @@ $(document).ready(function(){
         'itl-phone': {
           required: getMsg('.itl-phone', $this, 'data-msg-required'),
           phone_valid: getMsg('.itl-phone', $this, 'data-msg-valid'),
+        },
+        gdpr: {
+          required: getMsg('input.gdpr', $this, 'data-msg-required'),
         },
       },
       submitHandler: function(form) {
