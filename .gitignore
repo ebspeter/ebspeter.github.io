@@ -11,3 +11,4 @@ _local
 /_includes/local.html
 local.html
 Gemfile.lock
+package-lock.json
