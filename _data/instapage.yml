@@ -327,7 +327,7 @@ it:
       help: Cerca nella lista inserendo il nome della tua nazione, o inserisci il codice della tua nazione per selezionare la nazione
     privacy_consent:       
       copy:
-        Sì, do il consenso al trattamento dei miei dati personali secondo <a href="/aiuto/politica-per-la-privacy/" target="_blank">l'informativa sulla privacy</a>.
+        Sì, do il consenso al trattamento dei miei dati personali secondo <a href="/aiuto/politica-per-la-privacy/" target="_blank">l’informativa sulla privacy</a>.
       messages: 
         required: Per continuare è necessario acconsentire all’Informativa sulla Privacy
   meta:
