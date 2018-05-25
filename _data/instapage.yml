@@ -24,7 +24,7 @@ en:
       copy:
         Yes, I consent to the processing of my personal data in accordance with the <a href="/help/privacy-policy/" target="_blank">Privacy Policy</a>
       messages: 
-        required: Please agree to the privacy policy
+        required: Please agree to the privacy policy to continue.
   meta:
     countrycode: "+44"
     hubspot-id: 33caee8b-be08-4595-9719-66d04178f3ce
@@ -61,9 +61,9 @@ dk:
       help: Søg på listen ved at skrive navnet på dit land, eller skriv landekoden på det valgte land
     privacy_consent:       
       copy:
-        Yes, I consent to the processing of my personal data in accordance with the <a href="/help/privacy-policy/" target="_blank">Privacy Policy</a>
+        Ja, jeg giver samtykke til at behandlingen af mine personlige data er i overensstemmelse med vores <a href="/hjaelp/privacy-policy/" target="_blank">fortrolighedspolitik</a>.
       messages: 
-        required: Please agree to the privacy policy
+        required: Du skal give dit samtykke til fortrolighedspolitikken for at fortsætte.
   meta:
     countrycode: "+45"
     hubspot-id: cf18ad53-ecca-48e4-80e6-b70868ec3b1d
@@ -99,9 +99,9 @@ sv:
       help: Sök i listan genom att skriva in första bokstäverna i ditt land, eller välj genom att ange landskod i telefonummret
     privacy_consent:       
       copy:
-        Yes, I consent to the processing of my personal data in accordance with the <a href="/help/privacy-policy/" target="_blank">Privacy Policy</a>
+        Ja, jag godkänner att mina personuppgifter används enligt <a href="/hjalp/sekretesspolicy/" target="_blank">sekretesspolicyn</a>.
       messages: 
-        required: Please agree to the privacy policy
+        required: För att fortsätta måste du godkänna vår sekretesspolicy.
   meta:
     countrycode: "+46"
     hubspot-id: 6d60b375-ef79-4af7-9f67-0ed9c3c8fb38
@@ -137,9 +137,9 @@ sv:
       help: Søk i listen ved å skrive inn land eller fyll inn landskode for å velge land
     privacy_consent:       
       copy:
-        Yes, I consent to the processing of my personal data in accordance with the <a href="/help/privacy-policy/" target="_blank">Privacy Policy</a>
+        Ja, jeg samtykker til håndteringen av min personlige data i henhold til <a href="/hjelpe/privacy-policy/" target="_blank">personvernreglene</a>.
       messages: 
-        required: Please agree to the privacy policy
+        required: Du må samtykke med våre personvernregler for å fortsette.
   meta:
     countrycode: "+47"
     hubspot-id: 4ad4c53e-7cf4-4f3a-a2d1-2505a9f88c98
@@ -175,9 +175,9 @@ nl:
       help: Zoek in de lijst, door het typen van jouw land, of schrijf jouw landcode om het land te selecteren
     privacy_consent:       
       copy:
-        Yes, I consent to the processing of my personal data in accordance with the <a href="/help/privacy-policy/" target="_blank">Privacy Policy</a>
+        Ja, ik geef toestemming voor de verwerking van mijn persoonsgegevens in overeenkomst met het <a href="/help/privacy-beleid/" target="_blank">privacybeleid</a>.
       messages: 
-        required: Please agree to the privacy policy
+        required: Je moet nog akkoord gaan met het privacybeleid.
   meta:
     countrycode: "+31"
     hubspot-id: 1d14c58a-dff8-4d54-a5d9-e7fa092f754a
@@ -213,9 +213,9 @@ de:
       help: Durchsuche die Liste, indem du deine Länderkennung oder dein Land eingibst, um ein Land auszuwählen
     privacy_consent:       
       copy:
-        Yes, I consent to the processing of my personal data in accordance with the <a href="/help/privacy-policy/" target="_blank">Privacy Policy</a>
+        Ja, ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der <a href="/hilfe/datenschutzrichtlinien/" target="_blank">Datenschutzrichtlinie</a> zu.
       messages: 
-        required: Please agree to the privacy policy
+        required: Du musst die Datenschutzrichtlinie zustimmen, um fortfahren zu können.
   meta:
     countrycode: "+49"
     hubspot-id: 6c3d842b-cb43-478e-8b4a-0376255201aa
@@ -251,9 +251,9 @@ fr:
       help: Navigue dans la liste en indiquant le nom de ton pays, ou entre ton indicatif de pays pour sélectionner ton pays
     privacy_consent:       
       copy:
-        Yes, I consent to the processing of my personal data in accordance with the <a href="/help/privacy-policy/" target="_blank">Privacy Policy</a>
+        Oui, je consens au traitement de mes données personnelles conformément à la <a href="/aide/politique-de-confidentialite/" target="_blank">politique de confidentialité</a>.
       messages: 
-        required: Please agree to the privacy policy
+        required: Vous devez accepter la politique de confidentialité pour continuer.
   meta:
     countrycode: "+33"
     hubspot-id: 25bf99b5-fe10-4fba-8648-87fb55139db1
@@ -289,9 +289,9 @@ es:
       help: Busca en la lista, escribiendo el nombre de tu país o introduciendo tu código de país para seleccionar el país.
     privacy_consent:       
       copy:
-        Yes, I consent to the processing of my personal data in accordance with the <a href="/help/privacy-policy/" target="_blank">Privacy Policy</a>
+        Sí, doy mi consentimiento para que se procesen mis datos según la <a href="/ayuda/politica-de-privacidad/" target="_blank">política de privacidad</a>.
       messages: 
-        required: Please agree to the privacy policy
+        required: Debes aceptar la Política de Privacidad para continuar.
   meta:
     countrycode: "+34"
     hubspot-id: 57d202bf-4bf3-42c9-a579-80180568ffce
@@ -327,9 +327,9 @@ it:
       help: Cerca nella lista inserendo il nome della tua nazione, o inserisci il codice della tua nazione per selezionare la nazione
     privacy_consent:       
       copy:
-        Yes, I consent to the processing of my personal data in accordance with the <a href="/help/privacy-policy/" target="_blank">Privacy Policy</a>
+        Sì, do il consenso al trattamento dei miei dati personali secondo <a href="/aiuto/politica-per-la-privacy/" target="_blank">l'informativa sulla privacy</a>.
       messages: 
-        required: Please agree to the privacy policy
+        required: Per continuare è necessario acconsentire all’Informativa sulla Privacy
   meta:
     countrycode: "+39"
     hubspot-id: 9448802d-fb54-4fdc-903f-6d87407a784e
@@ -363,6 +363,11 @@ fi:
         required: Syötä puhelinnumerosi
         valid: Ole hyvä ja syötä olemassa oleva puhelinnumero
       help: Etsi listalta syöttämällä maan nimi tai syötä valitun maan suuntanumero
+    privacy_consent:       
+      copy:
+        Kyllä, hyväksyn henkilötietojeni käsittelyn <a href="/apua/privacy-policy/" target="_blank">tietosuojakäytännön</a> mukaisesti.
+      messages: 
+        required: Sinun tulee hyväksyä tietosuojakäytäntömme jatkaaksesi.
   meta:
     countrycode: "+358"
     hubspot-id: 40ea51ce-5acf-4d94-b4ef-133c6c0d46d8
