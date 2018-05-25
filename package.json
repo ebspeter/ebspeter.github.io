@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/ebspeter/ebspeter.github.io#readme",
   "dependencies": {
-    "flightplan": "^0.6.16"
+    "flightplan": "^0.6.17"
   }
 }

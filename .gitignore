@@ -10,3 +10,5 @@ _config_dev.yml
 _local
 /_includes/local.html
 local.html
+Gemfile.lock
+package-lock.json

@@ -120,7 +120,7 @@ input[disabled="disabled"], input[disabled="disabled"]:hover{
   z-index: 9999;
 }
 .iti-flag {
-  background-image: url("http://cdn.barschool.net/wp-content/themes/ebs-v2/images/min/flags.png") !important;
+  background-image: url("//www.barschool.net/wp-content/themes/ebs-v2/images/min/flags.png") !important;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -130,6 +130,6 @@ only screen and (min-device-pixel-ratio: 2),
 only screen and (min-resolution: 192dpi),
 only screen and (min-resolution: 2dppx) {
     .iti-flag {
-        background-image: url("http://cdn.barschool.net/wp-content/themes/ebs-v2/images/min/flags@2x.png") !important;
+        background-image: url("//www.barschool.net/wp-content/themes/ebs-v2/images/min/flags@2x.png") !important;
     }
 }
