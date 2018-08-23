@@ -34,7 +34,7 @@
       autocomplete="email" />
   </div>
 
-  <div class="input-container">
+  <div class="input-container last">
     <i class="fa"></i>
     <input type="tel" name="itl-phone" id="itl-phone" class="itl-phone" tabindex="4"
       data-msg-required="{{ copy.phone.messages.required }}"
@@ -42,7 +42,14 @@
     <label for="itl-phone" generated="true" class="error"></label>
   </div>
 
-  <div class="input-container gdpr">
+  <div class="messenger">
+    <input type="checkbox" class="checkbox" name="messenger" tabindex="14" id="messenger-footer" checked>
+    <div class="labels">
+      <label for="messenger-footer">{{ copy.messenger }}</label>
+    </div>
+  </div>
+
+  <div class="gdpr">
     <input type="checkbox" class="checkbox gdpr" name="gdpr" id="gdpr" tabindex="14" data-msg-required="{{ copy.privacy_consent.messages.required }}">
     <div class="labels">
       <label for="gdpr">{{ copy.privacy_consent.copy|raw }}</label>

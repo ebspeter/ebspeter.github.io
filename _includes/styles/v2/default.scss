@@ -45,6 +45,9 @@
     text-align: left;
     position: relative;
     margin-bottom:10px;
+    &.last{
+      margin-bottom: 0;
+    }
     i{
       position: absolute;
       z-index: 1;
@@ -89,23 +92,26 @@
       color: lighten($error-color, 10%);
       margin-top:4px;
     }
-    &.gdpr{
-      display: flex;
-      flex-direction: row;
-      margin-top: -10px;
-      height: 50px;
-      input{
-        margin-top: 5px;
-        margin-right: 20px;
-        width: 20px;
-        height: 20px;
-      }
-      .labels label{
+  }
+
+  .gdpr, .messenger{
+    display: flex;
+    align-items: end;
+    margin-bottom: 10px;
+    input{
+      flex: 1;
+      width: 15px;
+      height: 15px; 
+    }
+    .labels {
+      flex: 8;
+      label{
         font-size: 80%;
         font-weight: normal;
         line-height: 1.4;
         margin-bottom: 0;
         color: $text-color;
+        display: block;
         &.error{
           color: lighten($error-color, 10%);
         }

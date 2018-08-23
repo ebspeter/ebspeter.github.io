@@ -20,6 +20,7 @@ en:
         required: Please enter your phone number
         valid: Please enter a valid phone number
       help: Search the list by typing your country name, or enter your country code to select country
+    messenger: Please send the brochure on messenger
     privacy_consent:       
       copy:
         Yes, I consent to the processing of my personal data in accordance with the <a href="/help/privacy-policy/" target="_blank">Privacy Policy</a>
@@ -59,6 +60,7 @@ dk:
         required: Indsæt dit telefonnummer
         valid: Indsæt et gyldigt telefonnummer
       help: Søg på listen ved at skrive navnet på dit land, eller skriv landekoden på det valgte land
+    messenger: Please send the brochure on messenger
     privacy_consent:       
       copy:
         Ja, jeg giver samtykke til at behandlingen af mine personlige data er i overensstemmelse med vores <a href="/hjaelp/privacy-policy/" target="_blank">fortrolighedspolitik</a>.
@@ -97,6 +99,7 @@ sv:
         required: Fyll i ditt telefonnummer
         valid: Fyll i ett giltigt telefonnummer
       help: Sök i listan genom att skriva in första bokstäverna i ditt land, eller välj genom att ange landskod i telefonummret
+    messenger: Please send the brochure on messenger
     privacy_consent:       
       copy:
         Ja, jag godkänner att mina personuppgifter används enligt <a href="/hjalp/sekretesspolicy/" target="_blank">sekretesspolicyn</a>.
@@ -135,6 +138,7 @@ sv:
         required: Vennligst fyll inn telefonnummer
         valid: Vennligst benytt et gyldig nummer
       help: Søk i listen ved å skrive inn land eller fyll inn landskode for å velge land
+    messenger: Please send the brochure on messenger
     privacy_consent:       
       copy:
         Ja, jeg samtykker til håndteringen av min personlige data i henhold til <a href="/hjelpe/privacy-policy/" target="_blank">personvernreglene</a>.
@@ -173,6 +177,7 @@ nl:
         required: Vul jouw telefoon nummer in a.u.b
         valid: Vul een geldig telefoon nummer in a.u.b
       help: Zoek in de lijst, door het typen van jouw land, of schrijf jouw landcode om het land te selecteren
+    messenger: Please send the brochure on messenger
     privacy_consent:       
       copy:
         Ja, ik geef toestemming voor de verwerking van mijn persoonsgegevens in overeenkomst met het <a href="/help/privacy-beleid/" target="_blank">privacybeleid</a>.
@@ -211,6 +216,7 @@ de:
         required: Bitte gib deine Telefonnummer ein
         valid: Bitte gib eine gültige Telefonnummer ein
       help: Durchsuche die Liste, indem du deine Länderkennung oder dein Land eingibst, um ein Land auszuwählen
+    messenger: Please send the brochure on messenger
     privacy_consent:       
       copy:
         Ja, ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der <a href="/hilfe/datenschutzrichtlinien/" target="_blank">Datenschutzrichtlinie</a> zu.
@@ -249,6 +255,7 @@ fr:
         required: Indique ton numéro de téléphone STP
         valid: Indique un numéro de téléphone valide STP
       help: Navigue dans la liste en indiquant le nom de ton pays, ou entre ton indicatif de pays pour sélectionner ton pays
+    messenger: Please send the brochure on messenger
     privacy_consent:       
       copy:
         Oui, je consens au traitement de mes données personnelles conformément à la <a href="/aide/politique-de-confidentialite/" target="_blank">politique de confidentialité</a>.
@@ -287,6 +294,7 @@ es:
         required: Por favor introduce tu número de teléfono
         valid: Por favor introduce un número de teléfono correcto
       help: Busca en la lista, escribiendo el nombre de tu país o introduciendo tu código de país para seleccionar el país.
+    messenger: Please send the brochure on messenger
     privacy_consent:       
       copy:
         Sí, doy mi consentimiento para que se procesen mis datos según la <a href="/ayuda/politica-de-privacidad/" target="_blank">política de privacidad</a>.
@@ -325,6 +333,7 @@ it:
         required: Per favore, inserisci il tuo numero di telefono
         valid: Per favore, inserisci un numero di telefono valido
       help: Cerca nella lista inserendo il nome della tua nazione, o inserisci il codice della tua nazione per selezionare la nazione
+    messenger: Please send the brochure on messenger
     privacy_consent:       
       copy:
         Sì, do il consenso al trattamento dei miei dati personali secondo <a href="/aiuto/politica-per-la-privacy/" target="_blank">l’informativa sulla privacy</a>.
@@ -363,6 +372,7 @@ fi:
         required: Syötä puhelinnumerosi
         valid: Ole hyvä ja syötä olemassa oleva puhelinnumero
       help: Etsi listalta syöttämällä maan nimi tai syötä valitun maan suuntanumero
+    messenger: Please send the brochure on messenger
     privacy_consent:       
       copy:
         Kyllä, hyväksyn henkilötietojeni käsittelyn <a href="/apua/privacy-policy/" target="_blank">tietosuojakäytännön</a> mukaisesti.
