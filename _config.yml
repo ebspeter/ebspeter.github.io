@@ -26,6 +26,7 @@ markdown: kramdown
 theme: minima
 exclude: 
   - node_modules
+  - vendor
   - Gemfile
   - yarn.lock
   - package.json
