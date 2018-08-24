@@ -45,6 +45,9 @@
     text-align: left;
     position: relative;
     margin-bottom:10px;
+    &.last{
+      margin-bottom: 0;
+    }
     i{
       position: absolute;
       z-index: 1;
@@ -89,32 +92,36 @@
       color: lighten($error-color, 10%);
       margin-top:4px;
     }
-    &.gdpr{
-      display: flex;
-      flex-direction: row;
-      margin-top: -10px;
-      height: 50px;
-      input{
-        margin-top: 5px;
-        margin-right: 20px;
-        width: 20px;
-        height: 20px;
-      }
-      .labels label{
+  }
+
+  .gdpr, .messenger{
+    display: flex;
+    align-items: end;
+    margin-bottom: 10px;
+    &.gdpr{ margin-bottom: 20px; }
+    input{
+      width: 15px;
+      height: 15px; 
+      margin: 0 10px;
+    }
+    .labels{
+      flex: 1;
+      label{
         font-size: 80%;
         font-weight: normal;
         line-height: 1.4;
         margin-bottom: 0;
-        color: $text-color;
-        &.error{
-          color: lighten($error-color, 10%);
-        }
-        a{
-          color: white;
-          text-decoration: underline;
-        }
+        color: white;
+        display: block;
+        text-align: left;
+      &.error{
+        color: lighten($error-color, 10%);
       }
-    }
+      a{
+        color: white;
+        text-decoration: underline;
+      }
+    }}
   }
 
   p.phone-help{
