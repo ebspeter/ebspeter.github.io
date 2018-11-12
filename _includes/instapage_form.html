@@ -28,7 +28,7 @@
 <div style="height:100%; width:100%; background-color:#575c6a; padding:20px; border-radius:8px; box-shadow: 2px 2px 15px #97999e"> 
 {% endif %}
 
-<form accept-charset="UTF-8" action="{{ meta.url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" 
+<form accept-charset="UTF-8" action="/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" 
   enctype="multipart/form-data" id="hsForm_{{ location }}" method="POST" class="hs-form stacked" data-form-name="Instapage">
   <input type="text" class="hs-input" id="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}"
     data-msg="{{ copy.firstname.messages.required }}"/>

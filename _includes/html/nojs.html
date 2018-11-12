@@ -23,7 +23,7 @@
 
 {% capture styles %}{% include styles/nojs.scss %}{% endcapture %}
 {% endcapture %}  <style type="text/css">{{ styles | scssify | strip_newlines }}</style>
-  <form accept-charset="UTF-8" action="{{ site_url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" method="POST" class="nojs">
+  <form accept-charset="UTF-8" action="/wp-content/themes/ebs-v2/form/formhandler-ip.php" target="result_{{ location }}" enctype="multipart/form-data" method="POST" class="nojs">
     <input type="text" class="firstname" name="firstname" placeholder="{{ copy.firstname.placeholder }}" autocomplete="given-name" />
     <input type="text" class="lastname" name="lastname" placeholder="{{ copy.lastname.placeholder }}" autocomplete="family-name"/>
     <input type="email" class="email" name="email" placeholder="{{ copy.email.placeholder }}" autocomplete="email"/>
@@ -45,4 +45,4 @@
     <input type="hidden" name="js" value="">
     <input type="submit" name="formSubmit" value="{{ meta.submit-text }}">
   </form>
-  <iframe class="result" name="result_{{ location }}" scrolling="no" src="{{ site_url }}/wp-content/themes/ebs-v2/form/formhandler-ip.php" width="100%"></iframe>
+  <iframe class="result" name="result_{{ location }}" scrolling="no" src="/wp-content/themes/ebs-v2/form/formhandler-ip.php" width="100%"></iframe>

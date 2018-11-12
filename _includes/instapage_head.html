@@ -125,7 +125,7 @@
             email: true,
             RFC2822Email: true,
             remote: {
-              url: "{{ meta.url }}/wp-content/themes/ebs-v2/check.php",
+              url: "/wp-content/themes/ebs-v2/check.php",
               type: "post",
               data: {
                 "email-domain": function() {
@@ -205,7 +205,7 @@
               };
             });
             _paq.push(['trackEvent', 'Form', this.getAttribute('data-form-name'), 'Invalid']);
-            $.post( "{{ meta.url }}/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) });
+            $.post( "/wp-content/themes/ebs-v2/check.php", { valid: 0, data: JSON.stringify(values) });
             $(event.target).closest('form').find('input[name="submit"]').attr('disabled', true);					
           };
         },
